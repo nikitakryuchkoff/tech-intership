@@ -11,10 +11,12 @@ export default function App() {
           path: '/',
           element: <MainPage />,
         },
+        {
+          path: '/:id',
+          element: <div>123</div>,
+        },
       ],
     },
   ]);
   return <RouterProvider router={router} />;
 }
-
-

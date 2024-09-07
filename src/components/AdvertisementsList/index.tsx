@@ -73,6 +73,7 @@ export default function AdvertisementsList(): JSX.Element {
               views={item.views}
               image={item.image}
               likes={item.likes}
+              cardId={item.id}
             />
           </Col>
         ))}
