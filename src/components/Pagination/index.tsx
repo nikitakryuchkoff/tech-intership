@@ -14,7 +14,6 @@ const PaginationComponent = ({
 }: PaginationComponentProps): JSX.Element => {
   const handlePageChange = (pageNumber: number) => {
     if (pageNumber > 0 && pageNumber <= totalPages) {
-      console.log(pageNumber);
       onPageChange(pageNumber);
     }
   };

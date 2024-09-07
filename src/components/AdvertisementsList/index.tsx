@@ -11,18 +11,45 @@ import type { IAdvertisements } from '../../types';
 
 export default function AdvertisementsList(): JSX.Element {
   const [advertisements, setAdvertisements] = useState<IAdvertisements[]>([]);
+  const [currentAdvertisements, setCurrentAdvertisements] =
+    useState<IAdvertisements[]>(advertisements);
+
+  const [searchQuery, setSearchQuery] = useState<string>('');
   const [page, setPage] = useState<number>(1);
   const [limit, setLimit] = useState<number>(10);
   const totalCount = useRef<number>();
 
-  useEffect(() => {
+  const fetchAdvertisements = () => {
     AdvertismentsService.getAllAdvertisements(page, limit).then(
-      ({ data, items }) => {
+      ({ data, itemsCount }) => {
         setAdvertisements(data);
-        totalCount.current = items;
+        totalCount.current = itemsCount;
       },
     );
-  }, [limit, page]);
+  };
+
+  const searchAdvertisements = () => {
+    AdvertismentsService.searchByTitle(searchQuery, page, limit).then(
+      ({ data, itemsCount }) => {
+        setCurrentAdvertisements(data);
+        totalCount.current = itemsCount;
+      },
+    );
+  };
+
+  useEffect(() => {
+    if (searchQuery) {
+      searchAdvertisements();
+    } else {
+      fetchAdvertisements();
+    }
+  }, [limit, page, searchQuery]);
+
+  useEffect(() => {
+    if (!searchQuery) {
+      setCurrentAdvertisements(advertisements);
+    }
+  }, [advertisements, searchQuery]);
 
   const totalPages =
     totalCount.current && Math.ceil(totalCount.current / limit);
@@ -31,14 +58,14 @@ export default function AdvertisementsList(): JSX.Element {
     <>
       <Row className="mt-4">
         <Col md={10}>
-          <SearchInput />
+          <SearchInput setSearchQuery={setSearchQuery} />{' '}
         </Col>
         <Col md={2}>
           <SelectCardCount setLimit={setLimit} />
         </Col>
       </Row>
       <Row className="mt-4">
-        {advertisements.map((item) => (
+        {currentAdvertisements.map((item) => (
           <Col key={item.id} xs={12} sm={6} md={4} lg={4}>
             <AdvertisementCard
               title={item.title}
