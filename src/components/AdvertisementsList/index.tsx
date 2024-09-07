@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { AdvertismentsService } from '../../services';
 import { Col, Row } from 'react-bootstrap';
 import {
@@ -11,14 +11,21 @@ import type { IAdvertisements } from '../../types';
 
 export default function AdvertisementsList(): JSX.Element {
   const [advertisements, setAdvertisements] = useState<IAdvertisements[]>([]);
-  const [page, setPage] = useState<number>(2);
+  const [page, setPage] = useState<number>(1);
   const [limit, setLimit] = useState<number>(10);
+  const totalCount = useRef<number>();
 
   useEffect(() => {
-    AdvertismentsService.getAllAdvertisements(page, limit).then((data) =>
-      setAdvertisements(data),
+    AdvertismentsService.getAllAdvertisements(page, limit).then(
+      ({ data, items }) => {
+        setAdvertisements(data);
+        totalCount.current = items;
+      },
     );
-  }, [limit]);
+  }, [limit, page]);
+
+  const totalPages =
+    totalCount.current && Math.ceil(totalCount.current / limit);
 
   return (
     <>
@@ -42,7 +49,13 @@ export default function AdvertisementsList(): JSX.Element {
             />
           </Col>
         ))}
-        <Pagination currentPage={1} totalPages={10} onPageChange={undefined} />
+        {totalPages !== undefined && totalPages > 1 && (
+          <Pagination
+            currentPage={page}
+            totalPages={totalPages}
+            onPageChange={setPage}
+          />
+        )}
       </Row>
     </>
   );

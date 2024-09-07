@@ -1,8 +1,20 @@
-import { Pagination as BootstrapPagination } from 'react-bootstrap';
+import Pagination from 'react-bootstrap/Pagination';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Pagination = ({ currentPage, totalPages, onPageChange }) => {
-  const handlePageChange = (pageNumber) => {
+interface PaginationComponentProps {
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (item: number) => void;
+}
+
+const PaginationComponent = ({
+  currentPage,
+  totalPages,
+  onPageChange,
+}: PaginationComponentProps): JSX.Element => {
+  const handlePageChange = (pageNumber: number) => {
     if (pageNumber > 0 && pageNumber <= totalPages) {
+      console.log(pageNumber);
       onPageChange(pageNumber);
     }
   };
@@ -10,33 +22,31 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   const items = [];
   for (let number = 1; number <= totalPages; number++) {
     items.push(
-      <BootstrapPagination.Item
+      <Pagination.Item
         key={number}
         active={number === currentPage}
         onClick={() => handlePageChange(number)}
       >
         {number}
-      </BootstrapPagination.Item>,
+      </Pagination.Item>,
     );
   }
 
   return (
-    <div className="d-flex justify-content-center">
-      <div className="w-50 gap-2">
-        <BootstrapPagination>
-          <BootstrapPagination.Prev
-            onClick={() => handlePageChange(currentPage - 1)}
-            disabled={currentPage === 1}
-          />
-          {items}
-          <BootstrapPagination.Next
-            onClick={() => handlePageChange(currentPage + 1)}
-            disabled={currentPage === totalPages}
-          />
-        </BootstrapPagination>
-      </div>
+    <div className="d-flex flex-column align-items-center mt-3">
+      <Pagination size="lg">
+        <Pagination.Prev
+          onClick={() => handlePageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+        />
+        {items}
+        <Pagination.Next
+          onClick={() => handlePageChange(currentPage + 1)}
+          disabled={currentPage === totalPages}
+        />
+      </Pagination>
     </div>
   );
 };
 
-export default Pagination;
+export default PaginationComponent;
