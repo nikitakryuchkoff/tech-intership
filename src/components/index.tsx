@@ -5,3 +5,5 @@ export { default as AdvertisementCard } from './AdvertisementCard';
 export { default as SelectCardCount } from './SelectCardCount';
 export { default as SearchInput } from './SearchInput';
 export { default as Pagination } from './Pagination';
+export { default as CreateAdvertisementModal } from './CreateAdvertisementModal';
+export { default as AdvertisementsNav } from './AdvertisementsNav';

@@ -1,17 +1,16 @@
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { AdvertismentsService } from '../../services'; // Предположим, что есть сервис для получения данных
+import { AdvertismentsService } from '../../services';
 import type { IAdvertisements } from '../../types';
 
 const AdvertisementPage = (): JSX.Element => {
-  const { id } = useParams<{ id: string }>(); // Получаем ID объявления из URL
+  const { id } = useParams<{ id: string }>();
   const [advertisement, setAdvertisement] = useState<IAdvertisements | null>(
     null,
   );
 
   useEffect(() => {
-    // Загружаем данные объявления по ID
     AdvertismentsService.getAdvertisementById(Number(id)).then((data) => {
       setAdvertisement(data[0]);
     });

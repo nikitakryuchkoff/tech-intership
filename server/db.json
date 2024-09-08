@@ -170,6 +170,43 @@
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
       "id": 19,
       "description": "Качественный телевизор LG с диагональю 43 дюйма и четким изображением."
+    },
+    {
+      "title": "Телевизор LG 43\"",
+      "price": 47000,
+      "views": 175,
+      "likes": 35,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
+      "description": "Качественный телевизор LG с диагональю 43 дюйма и четким изображением.",
+      "id": 20
+    },
+    {
+      "title": "asdas",
+      "image": "https://marketplace.canva.com/EADzX7x5yYU/1/0/1003w/canva-%D0%BC%D1%8F%D1%82%D0%BD%D1%8B%D0%B9-%D0%BA%D0%BE%D1%84%D0%B5-%D1%84%D0%BE%D1%82%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D1%8F-%D0%BC%D0%B8%D0%BD%D0%B8%D0%BC%D0%B0%D0%BB%D0%B8%D1%81%D1%82%D0%B8%D1%87%D0%BD%D1%8B%D0%B9-%D0%B5%D0%B4%D0%B0-%D0%B6%D1%83%D1%80%D0%BD%D0%B0%D0%BB-%D0%BA%D0%BD%D0%B8%D0%B3%D0%B0-%D0%BE%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0-4he1eqkeAQg.jpg",
+      "description": "21312",
+      "price": "5",
+      "id": 21
+    },
+    {
+      "title": "asd",
+      "image": "https://i.pinimg.com/236x/5b/6e/ca/5b6eca63605bea0eeb48db43f77fa0ce.jpg",
+      "description": "fsdf",
+      "price": "123",
+      "id": 22
+    },
+    {
+      "title": "asd",
+      "image": "https://sun9-33.userapi.com/impf/c834100/v834100090/1022b7/ssT5aWEahDs.jpg?size=1120x630&quality=96&sign=6ffd3a404308609e568b47d7e23de870&type=app",
+      "description": "sadfasd",
+      "price": "123",
+      "id": 23
+    },
+    {
+      "title": "asdasdasd",
+      "image": "https://sun9-33.userapi.com/impf/c834100/v834100090/1022b7/ssT5aWEahDs.jpg?size=1120x630&quality=96&sign=6ffd3a404308609e568b47d7e23de870&type=app",
+      "description": "213",
+      "price": "123123",
+      "id": 24
     }
   ]
 }

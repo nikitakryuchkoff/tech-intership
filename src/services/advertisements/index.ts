@@ -6,13 +6,13 @@ interface IAdvertisementsResponse {
 }
 
 class AdvertismentsService {
-  async getAllAdvertisements(
+  public async getAllAdvertisements(
     page: number = 1,
     limit: number = 10,
   ): Promise<IAdvertisementsResponse> {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_RUL}advertisements?_page=${page}&_limit=${limit}`,
+        `${import.meta.env.VITE_BASE_RUL}advertisements?_page=${page}&_limit=${limit}&_sort=id&_order=desc`,
         {
           method: 'GET',
           headers: {
@@ -34,7 +34,7 @@ class AdvertismentsService {
     }
   }
 
-  async searchByTitle(
+  public async searchByTitle(
     searchQuery: string,
     page: number,
     limit: number,
@@ -62,7 +62,7 @@ class AdvertismentsService {
     }
   }
 
-  async getAdvertisementById(id: number) {
+  public async getAdvertisementById(id: number) {
     try {
       const response = await fetch(
         `${import.meta.env.VITE_BASE_RUL}advertisements?id=${id}`,
@@ -71,6 +71,25 @@ class AdvertismentsService {
           headers: {
             'Content-Type': 'application/json;charset=utf-8',
           },
+        },
+      );
+
+      return response.json();
+    } catch (error) {
+      throw new Error(`Fetching error ${error}`);
+    }
+  }
+
+  public async createAdvertisement(body) {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BASE_RUL}advertisements`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json;charset=utf-8',
+          },
+          body: JSON.stringify(body),
         },
       );
 
