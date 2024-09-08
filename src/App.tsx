@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Layout } from './components';
-import { AdvertisementPage, MainPage } from './pages';
+import { AdvertisementPage, AdvertisementsPage, OrdersPage } from './pages';
 
 export default function App() {
   const router = createBrowserRouter([
@@ -9,11 +9,15 @@ export default function App() {
       children: [
         {
           path: '/',
-          element: <MainPage />,
+          element: <AdvertisementsPage />,
         },
         {
           path: '/:id',
           element: <AdvertisementPage />,
+        },
+        {
+          path: '/orders',
+          element: <OrdersPage />,
         },
       ],
     },

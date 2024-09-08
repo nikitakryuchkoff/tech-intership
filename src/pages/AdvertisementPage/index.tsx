@@ -18,10 +18,6 @@ const AdvertisementPage = (): JSX.Element => {
     });
   }, [id]);
 
-  if (!advertisement) {
-    return <p>Загрузка...</p>;
-  }
-
   return (
     <Container className="mt-4">
       <Row>

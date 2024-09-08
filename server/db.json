@@ -224,5 +224,124 @@
       "views": "0",
       "id": 26
     }
+  ],
+  "orders": [
+    {
+      "id": 41321,
+      "orderNumber": 52713,
+      "items": [
+        { "name": "Товар 1", "quantity": 3 },
+        { "name": "Товар 2", "quantity": 4 },
+        { "name": "Товар 3", "quantity": 1 }
+      ],
+      "totalPrice": 8275,
+      "creationDate": "2023-11-21",
+      "status": "В процессе"
+    },
+    {
+      "id": 76512,
+      "orderNumber": 19287,
+      "items": [
+        { "name": "Товар 1", "quantity": 2 },
+        { "name": "Товар 2", "quantity": 5 },
+        { "name": "Товар 3", "quantity": 3 }
+      ],
+      "totalPrice": 5625,
+      "creationDate": "2023-04-18",
+      "status": "Завершен"
+    },
+    {
+      "id": 13287,
+      "orderNumber": 39103,
+      "items": [
+        { "name": "Товар 1", "quantity": 4 },
+        { "name": "Товар 2", "quantity": 2 },
+        { "name": "Товар 3", "quantity": 5 }
+      ],
+      "totalPrice": 9890,
+      "creationDate": "2024-02-02",
+      "status": "Отменен"
+    },
+    {
+      "id": 58903,
+      "orderNumber": 81345,
+      "items": [
+        { "name": "Товар 1", "quantity": 1 },
+        { "name": "Товар 2", "quantity": 3 },
+        { "name": "Товар 3", "quantity": 2 }
+      ],
+      "totalPrice": 4350,
+      "creationDate": "2022-12-14",
+      "status": "В процессе"
+    },
+    {
+      "id": 28419,
+      "orderNumber": 76193,
+      "items": [
+        { "name": "Товар 1", "quantity": 3 },
+        { "name": "Товар 2", "quantity": 4 }
+      ],
+      "totalPrice": 7500,
+      "creationDate": "2023-09-05",
+      "status": "Завершен"
+    },
+    {
+      "id": 79124,
+      "orderNumber": 59281,
+      "items": [
+        { "name": "Товар 1", "quantity": 5 },
+        { "name": "Товар 2", "quantity": 1 },
+        { "name": "Товар 3", "quantity": 2 }
+      ],
+      "totalPrice": 6230,
+      "creationDate": "2024-06-23",
+      "status": "Отменен"
+    },
+    {
+      "id": 67234,
+      "orderNumber": 37421,
+      "items": [
+        { "name": "Товар 1", "quantity": 2 },
+        { "name": "Товар 2", "quantity": 4 },
+        { "name": "Товар 3", "quantity": 3 }
+      ],
+      "totalPrice": 5030,
+      "creationDate": "2023-03-30",
+      "status": "Завершен"
+    },
+    {
+      "id": 91847,
+      "orderNumber": 64532,
+      "items": [
+        { "name": "Товар 1", "quantity": 1 },
+        { "name": "Товар 2", "quantity": 5 }
+      ],
+      "totalPrice": 4720,
+      "creationDate": "2024-01-15",
+      "status": "В процессе"
+    },
+    {
+      "id": 23578,
+      "orderNumber": 21876,
+      "items": [
+        { "name": "Товар 1", "quantity": 3 },
+        { "name": "Товар 2", "quantity": 2 }
+      ],
+      "totalPrice": 6125,
+      "creationDate": "2022-07-19",
+      "status": "Завершен"
+    },
+    {
+      "id": 53490,
+      "orderNumber": 92135,
+      "items": [
+        { "name": "Товар 1", "quantity": 4 },
+        { "name": "Товар 2", "quantity": 1 },
+        { "name": "Товар 3", "quantity": 2 }
+      ],
+      "totalPrice": 7540,
+      "creationDate": "2023-08-10",
+      "status": "Отменен"
+    }
   ]
 }
