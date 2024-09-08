@@ -10,7 +10,7 @@
       "description": "Качественный телевизор с диагональю 43 дюйма от компании Samsung."
     },
     {
-      "title": "Телевизор Samsung 50\"",
+      "title": "Телевизор LG 44443\"",
       "price": 55000,
       "views": 130,
       "likes": 25,
@@ -137,7 +137,7 @@
     },
     {
       "title": "Телевизор Sony 43\"",
-      "price": 48000,
+      "price": "12",
       "views": 130,
       "likes": 28,
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
@@ -145,39 +145,39 @@
       "description": "Модель Sony с диагональю 43 дюйма и технологией улучшения изображения."
     },
     {
-      "title": "Телевизор Philips 50\"",
-      "price": 47000,
+      "title": "",
+      "price": "12312312",
       "views": 145,
       "likes": 26,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
+      "image": "",
       "id": 17,
-      "description": "50-дюймовый телевизор Philips с насыщенной картинкой и современным дизайном."
+      "description": ""
     },
     {
-      "title": "Телевизор Samsung 43\"",
-      "price": 46000,
+      "title": "",
+      "price": "213123",
       "views": 165,
       "likes": 31,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
+      "image": "",
       "id": 18,
-      "description": "Телевизор Samsung с диагональю 43 дюйма и высокой яркостью."
+      "description": ""
     },
     {
-      "title": "Телевизор LG 43\"",
-      "price": 47000,
+      "title": "",
+      "price": "12312",
       "views": 175,
       "likes": 35,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
+      "image": "",
       "id": 19,
-      "description": "Качественный телевизор LG с диагональю 43 дюйма и четким изображением."
+      "description": ""
     },
     {
-      "title": "Телевизор LG 43\"",
-      "price": 47000,
+      "title": "",
+      "price": "123412321312",
       "views": 175,
       "likes": 35,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "description": "Качественный телевизор LG с диагональю 43 дюйма и четким изображением.",
+      "image": "",
+      "description": "",
       "id": 20
     },
     {
@@ -202,11 +202,27 @@
       "id": 23
     },
     {
-      "title": "asdasdasd",
-      "image": "https://sun9-33.userapi.com/impf/c834100/v834100090/1022b7/ssT5aWEahDs.jpg?size=1120x630&quality=96&sign=6ffd3a404308609e568b47d7e23de870&type=app",
-      "description": "213",
-      "price": "123123",
+      "title": "",
+      "image": "",
+      "description": "",
+      "price": "123213123123",
       "id": 24
+    },
+    {
+      "title": "sad",
+      "image": "asdas",
+      "description": "dasd",
+      "price": "123",
+      "id": 25
+    },
+    {
+      "title": "sad",
+      "image": "https://ridero.ru/blog/wp-content/uploads/2019/04/cover_7-724x1024.jpg",
+      "description": "asdasd",
+      "price": "158",
+      "likes": "0",
+      "views": "0",
+      "id": 26
     }
   ]
 }

@@ -2,13 +2,15 @@ import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { AdvertismentsService } from '../../services';
-import type { IAdvertisements } from '../../types';
+import type { IAdvertisement } from '../../types';
+import UpdateAdvertisementModal from '../../components/UpdateAdvertisementModal';
 
 const AdvertisementPage = (): JSX.Element => {
   const { id } = useParams<{ id: string }>();
-  const [advertisement, setAdvertisement] = useState<IAdvertisements | null>(
-    null,
-  );
+  const [advertisement, setAdvertisement] = useState<
+    IAdvertisement | undefined
+  >();
+  const [modal, setModal] = useState<boolean>(false);
 
   useEffect(() => {
     AdvertismentsService.getAdvertisementById(Number(id)).then((data) => {
@@ -19,8 +21,6 @@ const AdvertisementPage = (): JSX.Element => {
   if (!advertisement) {
     return <p>Загрузка...</p>;
   }
-
-  console.log(advertisement);
 
   return (
     <Container className="mt-4">
@@ -60,10 +60,24 @@ const AdvertisementPage = (): JSX.Element => {
               <Button variant="danger" size="lg">
                 Купить сейчас
               </Button>
+              <Button
+                variant="warning"
+                size="lg"
+                className="mx-5"
+                onClick={() => setModal(true)}
+              >
+                Редактировать
+              </Button>
             </Card.Body>
           </Card>
         </Col>
       </Row>
+      <UpdateAdvertisementModal
+        show={modal}
+        closeModal={setModal}
+        setCurrentAdvertisement={setAdvertisement}
+        id={Number(id)}
+      />
     </Container>
   );
 };

@@ -2,17 +2,17 @@ import { useEffect, useRef, useState } from 'react';
 import {
   AdvertisementsList,
   AdvertisementsNav,
-  CreateAdvertisementModal,
   Pagination,
 } from '../../components';
-import { IAdvertisements } from '../../types';
+import { IAdvertisement } from '../../types';
 import { AdvertismentsService } from '../../services';
+import CreateAdvertisementModal from '../../components/CreateAdvertisementModal';
 
 export default function AdvertisementsPage(): JSX.Element {
-  const [advertisements, setAdvertisements] = useState<IAdvertisements[]>([]);
+  const [advertisements, setAdvertisements] = useState<IAdvertisement[]>([]);
   const [modal, setModal] = useState<boolean>(false);
   const [currentAdvertisements, setCurrentAdvertisements] =
-    useState<IAdvertisements[]>(advertisements);
+    useState<IAdvertisement[]>(advertisements);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [limit, setLimit] = useState<number>(10);
   const [page, setPage] = useState<number>(1);

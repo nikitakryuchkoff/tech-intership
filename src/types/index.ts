@@ -1,1 +1,1 @@
-export type { default as IAdvertisements } from './advertisements'
+export type { default as IAdvertisement } from './advertisements';

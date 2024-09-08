@@ -1,7 +1,7 @@
-import { IAdvertisements } from '../../types';
+import { IAdvertisement } from '../../types';
 
 interface IAdvertisementsResponse {
-  data: IAdvertisements[];
+  data: IAdvertisement[];
   itemsCount: number | 0;
 }
 
@@ -21,7 +21,7 @@ class AdvertismentsService {
         },
       );
 
-      const data: IAdvertisements[] = await response.json();
+      const data: IAdvertisement[] = await response.json();
 
       const itemsCount = Number(response.headers.get('X-Total-Count'));
 
@@ -49,7 +49,7 @@ class AdvertismentsService {
           },
         },
       );
-      const data: IAdvertisements[] = await response.json();
+      const data: IAdvertisement[] = await response.json();
 
       const itemsCount = Number(response.headers.get('X-Total-Count'));
 
@@ -80,7 +80,9 @@ class AdvertismentsService {
     }
   }
 
-  public async createAdvertisement(body) {
+  public async createAdvertisement(
+    body: Record<string, FormDataEntryValue>,
+  ): Promise<IAdvertisement> {
     try {
       const response = await fetch(
         `${import.meta.env.VITE_BASE_RUL}advertisements`,
@@ -93,6 +95,27 @@ class AdvertismentsService {
         },
       );
 
+      return response.json();
+    } catch (error) {
+      throw new Error(`Fetching error ${error}`);
+    }
+  }
+
+  public async updateAdvertisement(
+    body: Record<string, FormDataEntryValue>,
+    id: number,
+  ): Promise<IAdvertisement> {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BASE_RUL}advertisements/${id}`,
+        {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json;charset=utf-8',
+          },
+          body: JSON.stringify(body),
+        },
+      );
       return response.json();
     } catch (error) {
       throw new Error(`Fetching error ${error}`);

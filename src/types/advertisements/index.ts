@@ -1,4 +1,4 @@
-export default interface IAdvertisements {
+export default interface IAdvertisement {
   id: number;
   title: string;
   image: string;
