@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Layout } from './components';
-import MainPage from './pages/MainPage';
+import { AdvertisementPage, MainPage } from './pages';
 
 export default function App() {
   const router = createBrowserRouter([
@@ -13,7 +13,7 @@ export default function App() {
         },
         {
           path: '/:id',
-          element: <div>123</div>,
+          element: <AdvertisementPage />,
         },
       ],
     },

@@ -61,6 +61,24 @@ class AdvertismentsService {
       throw new Error(`Fetching error ${error}`);
     }
   }
+
+  async getAdvertisementById(id: number) {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BASE_RUL}advertisements?id=${id}`,
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json;charset=utf-8',
+          },
+        },
+      );
+
+      return response.json();
+    } catch (error) {
+      throw new Error(`Fetching error ${error}`);
+    }
+  }
 }
 
 const advertisementsService = new AdvertismentsService();

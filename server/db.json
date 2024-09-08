@@ -6,7 +6,8 @@
       "views": 112,
       "likes": 20,
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 1
+      "id": 1,
+      "description": "Качественный телевизор с диагональю 43 дюйма от компании Samsung."
     },
     {
       "title": "Телевизор Samsung 50\"",
@@ -14,7 +15,8 @@
       "views": 130,
       "likes": 25,
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 2
+      "id": 2,
+      "description": "Модель Samsung с диагональю 50 дюймов и высоким разрешением."
     },
     {
       "title": "Телевизор LG 43\"",
@@ -22,7 +24,8 @@
       "views": 150,
       "likes": 30,
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 3
+      "id": 3,
+      "description": "Телевизор LG с диагональю 43 дюйма, отличающийся яркостью изображения."
     },
     {
       "title": "Телевизор Sony 55\"",
@@ -30,7 +33,8 @@
       "views": 200,
       "likes": 35,
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 4
+      "id": 4,
+      "description": "Sony 55 дюймов, модель с премиальной картинкой и современными функциями."
     },
     {
       "title": "Телевизор Philips 43\"",
@@ -38,7 +42,8 @@
       "views": 120,
       "likes": 22,
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 5
+      "id": 5,
+      "description": "Надежный и доступный телевизор Philips с диагональю 43 дюйма."
     },
     {
       "title": "Телевизор Samsung 55\"",
@@ -46,7 +51,8 @@
       "views": 140,
       "likes": 28,
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 6
+      "id": 6,
+      "description": "Samsung 55 дюймов с современными технологиями для качественного просмотра."
     },
     {
       "title": "Телевизор LG 50\"",
@@ -54,7 +60,8 @@
       "views": 160,
       "likes": 33,
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 7
+      "id": 7,
+      "description": "Элегантный LG с 50-дюймовым экраном и ярким изображением."
     },
     {
       "title": "Телевизор Sony 43\"",
@@ -62,7 +69,8 @@
       "views": 110,
       "likes": 18,
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 8
+      "id": 8,
+      "description": "Компактный телевизор Sony с диагональю 43 дюйма и высокой четкостью."
     },
     {
       "title": "Телевизор Philips 50\"",
@@ -70,7 +78,8 @@
       "views": 135,
       "likes": 24,
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 9
+      "id": 9,
+      "description": "Функциональный 50-дюймовый телевизор Philips с отличной картинкой."
     },
     {
       "title": "Телевизор Samsung 43\"",
@@ -78,7 +87,8 @@
       "views": 145,
       "likes": 29,
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 10
+      "id": 10,
+      "description": "Надежный и популярный телевизор Samsung с диагональю 43 дюйма."
     },
     {
       "title": "Телевизор LG 43\"",
@@ -86,7 +96,8 @@
       "views": 155,
       "likes": 32,
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 11
+      "id": 11,
+      "description": "Модель LG 43 дюйма с поддержкой современных форматов видео."
     },
     {
       "title": "Телевизор Sony 50\"",
@@ -94,7 +105,8 @@
       "views": 180,
       "likes": 36,
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 12
+      "id": 12,
+      "description": "Телевизор Sony с диагональю 50 дюймов и великолепной цветопередачей."
     },
     {
       "title": "Телевизор Philips 43\"",
@@ -102,7 +114,8 @@
       "views": 140,
       "likes": 25,
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 13
+      "id": 13,
+      "description": "Доступный телевизор Philips с диагональю 43 дюйма, идеальный для дома."
     },
     {
       "title": "Телевизор Samsung 55\"",
@@ -110,7 +123,8 @@
       "views": 170,
       "likes": 30,
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 14
+      "id": 14,
+      "description": "Samsung с большим 55-дюймовым экраном для просмотра фильмов в высоком качестве."
     },
     {
       "title": "Телевизор LG 50\"",
@@ -118,7 +132,8 @@
       "views": 160,
       "likes": 33,
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 15
+      "id": 15,
+      "description": "Стильный телевизор LG с диагональю 50 дюймов и отличной четкостью."
     },
     {
       "title": "Телевизор Sony 43\"",
@@ -126,7 +141,8 @@
       "views": 130,
       "likes": 28,
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 16
+      "id": 16,
+      "description": "Модель Sony с диагональю 43 дюйма и технологией улучшения изображения."
     },
     {
       "title": "Телевизор Philips 50\"",
@@ -134,7 +150,8 @@
       "views": 145,
       "likes": 26,
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 17
+      "id": 17,
+      "description": "50-дюймовый телевизор Philips с насыщенной картинкой и современным дизайном."
     },
     {
       "title": "Телевизор Samsung 43\"",
@@ -142,7 +159,8 @@
       "views": 165,
       "likes": 31,
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 18
+      "id": 18,
+      "description": "Телевизор Samsung с диагональю 43 дюйма и высокой яркостью."
     },
     {
       "title": "Телевизор LG 43\"",
@@ -150,255 +168,8 @@
       "views": 175,
       "likes": 35,
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 19
-    },
-    {
-      "title": "Телевизор Sony 50\"",
-      "price": 59000,
-      "views": 190,
-      "likes": 38,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 20
-    },
-    {
-      "title": "Телевизор Philips 43\"",
-      "price": 46000,
-      "views": 140,
-      "likes": 27,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 21
-    },
-    {
-      "title": "Телевизор Samsung 55\"",
-      "price": 52000,
-      "views": 155,
-      "likes": 29,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 22
-    },
-    {
-      "title": "Телевизор LG 50\"",
-      "price": 50000,
-      "views": 160,
-      "likes": 32,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 23
-    },
-    {
-      "title": "Телевизор Sony 43\"",
-      "price": 49000,
-      "views": 125,
-      "likes": 26,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 24
-    },
-    {
-      "title": "Телевизор Philips 50\"",
-      "price": 48000,
-      "views": 135,
-      "likes": 22,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 25
-    },
-    {
-      "title": "Телевизор Samsung 43\"",
-      "price": 45000,
-      "views": 150,
-      "likes": 28,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 26
-    },
-    {
-      "title": "Телевизор LG 43\"",
-      "price": 48000,
-      "views": 165,
-      "likes": 33,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 27
-    },
-    {
-      "title": "Телевизор Sony 50\"",
-      "price": 57000,
-      "views": 180,
-      "likes": 37,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 28
-    },
-    {
-      "title": "Телевизор Philips 43\"",
-      "price": 45000,
-      "views": 140,
-      "likes": 24,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 29
-    },
-    {
-      "title": "Телевизор Samsung 55\"",
-      "price": 53000,
-      "views": 175,
-      "likes": 31,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 30
-    },
-    {
-      "title": "Телевизор LG 50\"",
-      "price": 51000,
-      "views": 190,
-      "likes": 35,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 31
-    },
-    {
-      "title": "Телевизор Sony 43\"",
-      "price": 50000,
-      "views": 155,
-      "likes": 30,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 32
-    },
-    {
-      "title": "Телевизор Philips 50\"",
-      "price": 49000,
-      "views": 165,
-      "likes": 28,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 33
-    },
-    {
-      "title": "Телевизор Samsung 43\"",
-      "price": 44000,
-      "views": 180,
-      "likes": 34,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 34
-    },
-    {
-      "title": "Телевизор LG 43\"",
-      "price": 47000,
-      "views": 195,
-      "likes": 36,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 35
-    },
-    {
-      "title": "Телевизор Sony 50\"",
-      "price": 58000,
-      "views": 200,
-      "likes": 40,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 36
-    },
-    {
-      "title": "Телевизор Philips 43\"",
-      "price": 46000,
-      "views": 150,
-      "likes": 26,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 37
-    },
-    {
-      "title": "Телевизор Samsung 55\"",
-      "price": 54000,
-      "views": 170,
-      "likes": 30,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 38
-    },
-    {
-      "title": "Телевизор LG 50\"",
-      "price": 52000,
-      "views": 180,
-      "likes": 34,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 39
-    },
-    {
-      "title": "Телевизор Sony 43\"",
-      "price": 51000,
-      "views": 140,
-      "likes": 29,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 40
-    },
-    {
-      "title": "Телевизор Philips 50\"",
-      "price": 50000,
-      "views": 155,
-      "likes": 27,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 41
-    },
-    {
-      "title": "Телевизор Samsung 43\"",
-      "price": 46000,
-      "views": 160,
-      "likes": 32,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 42
-    },
-    {
-      "title": "Телевизор LG 43\"",
-      "price": 49000,
-      "views": 175,
-      "likes": 34,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 43
-    },
-    {
-      "title": "Телевизор Sony 50\"",
-      "price": 56000,
-      "views": 185,
-      "likes": 38,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 44
-    },
-    {
-      "title": "Телевизор Philips 43\"",
-      "price": 47000,
-      "views": 150,
-      "likes": 25,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 45
-    },
-    {
-      "title": "Телевизор Samsung 55\"",
-      "price": 55000,
-      "views": 190,
-      "likes": 32,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 46
-    },
-    {
-      "title": "Телевизор LG 50\"",
-      "price": 53000,
-      "views": 200,
-      "likes": 36,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 47
-    },
-    {
-      "title": "Телевизор Sony 43\"",
-      "price": 50000,
-      "views": 170,
-      "likes": 30,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 48
-    },
-    {
-      "title": "Телевизор Philips 50\"",
-      "price": 49000,
-      "views": 185,
-      "likes": 33,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 49
-    },
-    {
-      "title": "Телевизор Samsung 43\"",
-      "price": 44000,
-      "views": 200,
-      "likes": 35,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 50
+      "id": 19,
+      "description": "Качественный телевизор LG с диагональю 43 дюйма и четким изображением."
     }
   ]
 }
