@@ -16,15 +16,21 @@ class AdvertismentsService {
     try {
       const sortOption = modifySortOption(sortType, sortOrder);
 
-      const response = await fetch(
-        `${import.meta.env.VITE_BASE_RUL}advertisements?_page=${page}&_limit=${limit}&_sort=${sortOption?.name}&_order=${sortOption?.order}`,
-        {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json;charset=utf-8',
-          },
+      let query = `${import.meta.env.VITE_BASE_RUL}advertisements?_page=${page}&_limit=${limit}`;
+
+      if (sortOption.status) {
+        query += `&${sortOption.status}`;
+      }
+
+      if (sortOption.name && sortOption.order) {
+        query += `&${sortOption.name}&${sortOption.order}`;
+      }
+      const response = await fetch(query, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8',
         },
-      );
+      });
 
       const data: IAdvertisement[] = await response.json();
       const itemsCount = Number(response.headers.get('X-Total-Count'));

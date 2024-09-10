@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import OrdersList from '../../components/OrdersList';
 import { OrdersService } from '../../services';
 import { IOrder } from '../../types';
-import { Filter, Pagination, Slider } from '../../components';
+import { Filter, Pagination } from '../../components';
 import { LIMIT } from '../../constants';
 
 function OrdersPage(): JSX.Element {
@@ -33,12 +33,15 @@ function OrdersPage(): JSX.Element {
   return (
     <>
       <Filter
-        sortTypesArray={['Статус заказа']}
-        sortOrderArray={['Все', 'В процессе', 'Завершен', 'Отменен']}
+        sortTypesArray={['Статус', 'Цена']}
+        sortOrderArray={
+          sortType === 'Статус'
+            ? ['Все', 'В процессе', 'Завершен', 'Отменен']
+            : ['По возрастанию', 'По убыванию']
+        }
         setSortType={setSortType}
         setSortOrder={setSortOrder}
       />
-      <Slider minPrice={0} maxPrice={10000} setPriceRange={() => 1} />
       <OrdersList orders={currentOrders} setCurrentOrders={setCurrentOrders} />
       {totalPages > 1 && (
         <Pagination

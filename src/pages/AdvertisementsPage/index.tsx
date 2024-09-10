@@ -15,7 +15,7 @@ export default function AdvertisementsPage(): JSX.Element {
     IAdvertisement[]
   >([]);
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const debouncedQuery = useDebounce(searchQuery, 333);
+  const debouncedQuery = useDebounce<string>(searchQuery, 333);
   const [limit, setLimit] = useState<string>('10');
   const [page, setPage] = useState<number>(1);
   const [sortOrder, setSortOrder] = useState<string>('По возрастанию');

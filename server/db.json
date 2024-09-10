@@ -132,9 +132,9 @@
         }
       ],
       "totalItems": 2,
-      "totalPrice": 225000,
+      "price": 225000,
       "createdAt": "2024-09-10",
-      "status": "Завершен"
+      "status": "Отменен"
     },
     {
       "id": 2,
@@ -159,7 +159,7 @@
         }
       ],
       "totalItems": 2,
-      "totalPrice": 310000,
+      "price": 310000,
       "createdAt": "2024-09-09",
       "status": "Завершен"
     },
@@ -186,7 +186,7 @@
         }
       ],
       "totalItems": 2,
-      "totalPrice": 2000000,
+      "price": 2000000,
       "createdAt": "2024-09-08",
       "status": "Завершен"
     },
@@ -204,7 +204,7 @@
         }
       ],
       "totalItems": 1,
-      "totalPrice": 100000000,
+      "price": 100000000,
       "createdAt": "2024-09-07",
       "status": "В процессе"
     },
@@ -231,7 +231,7 @@
         }
       ],
       "totalItems": 2,
-      "totalPrice": 95000,
+      "price": 95000,
       "createdAt": "2024-09-06",
       "status": "В процессе"
     }

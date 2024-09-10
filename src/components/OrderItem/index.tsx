@@ -39,7 +39,7 @@ function OrderItem({ order, setCurrentOrders }: OrderItemProps) {
           <strong>Количество товаров:</strong> {order.items.length}
         </Card.Text>
         <Card.Text>
-          <strong>Стоимость заказа:</strong> {order.totalPrice} ₽
+          <strong>Стоимость заказа:</strong> {order.price} ₽
         </Card.Text>
         <Card.Text>
           <strong>Дата создания заказа:</strong> {order.createdAt}

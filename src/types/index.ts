@@ -19,7 +19,7 @@ export interface ICreateAdvertisementFormData {
 export interface IOrder {
   orderNumber: number;
   items: IAdvertisement[];
-  totalPrice: number;
+  price: number;
   createdAt: string;
   status: string;
   id: number;
