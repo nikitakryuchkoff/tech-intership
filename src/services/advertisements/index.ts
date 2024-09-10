@@ -1,4 +1,5 @@
-import { IAdvertisement } from '../../types';
+import { IAdvertisement, ICreateAdvertisementFormData } from '../../types';
+import modifySortOption from '../../utils/filtredArray';
 
 interface IAdvertisementsResponse {
   data: IAdvertisement[];
@@ -9,10 +10,14 @@ class AdvertismentsService {
   public async getAllAdvertisements(
     page: number = 1,
     limit: number = 10,
+    sortType: string,
+    sortOrder: string,
   ): Promise<IAdvertisementsResponse> {
     try {
+      const sortOption = modifySortOption(sortType, sortOrder);
+
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_RUL}advertisements?_page=${page}&_limit=${limit}&_sort=id&_order=desc`,
+        `${import.meta.env.VITE_BASE_RUL}advertisements?_page=${page}&_limit=${limit}&_sort=${sortOption?.name}&_order=${sortOption?.order}`,
         {
           method: 'GET',
           headers: {
@@ -22,13 +27,71 @@ class AdvertismentsService {
       );
 
       const data: IAdvertisement[] = await response.json();
-
       const itemsCount = Number(response.headers.get('X-Total-Count'));
 
       return {
         data,
         itemsCount,
       };
+    } catch (error) {
+      throw new Error(`Fetching error ${error}`);
+    }
+  }
+  public async createAdvertisement(
+    body: ICreateAdvertisementFormData,
+  ): Promise<IAdvertisement> {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BASE_RUL}advertisements`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json;charset=utf-8',
+          },
+          body: JSON.stringify(body),
+        },
+      );
+
+      return response.json();
+    } catch (error) {
+      throw new Error(`Fetching error ${error}`);
+    }
+  }
+
+  public async getAdvertisementById(id: number) {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BASE_RUL}advertisements?id=${id}`,
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json;charset=utf-8',
+          },
+        },
+      );
+
+      return response.json();
+    } catch (error) {
+      throw new Error(`Fetching error ${error}`);
+    }
+  }
+
+  public async updateAdvertisement(
+    body: Record<string, FormDataEntryValue>,
+    id: number,
+  ): Promise<IAdvertisement> {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BASE_RUL}advertisements/${id}`,
+        {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json;charset=utf-8',
+          },
+          body: JSON.stringify(body),
+        },
+      );
+      return response.json();
     } catch (error) {
       throw new Error(`Fetching error ${error}`);
     }
@@ -57,66 +120,6 @@ class AdvertismentsService {
         data,
         itemsCount,
       };
-    } catch (error) {
-      throw new Error(`Fetching error ${error}`);
-    }
-  }
-
-  public async getAdvertisementById(id: number) {
-    try {
-      const response = await fetch(
-        `${import.meta.env.VITE_BASE_RUL}advertisements?id=${id}`,
-        {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json;charset=utf-8',
-          },
-        },
-      );
-
-      return response.json();
-    } catch (error) {
-      throw new Error(`Fetching error ${error}`);
-    }
-  }
-
-  public async createAdvertisement(
-    body: Record<string, FormDataEntryValue>,
-  ): Promise<IAdvertisement> {
-    try {
-      const response = await fetch(
-        `${import.meta.env.VITE_BASE_RUL}advertisements`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json;charset=utf-8',
-          },
-          body: JSON.stringify(body),
-        },
-      );
-
-      return response.json();
-    } catch (error) {
-      throw new Error(`Fetching error ${error}`);
-    }
-  }
-
-  public async updateAdvertisement(
-    body: Record<string, FormDataEntryValue>,
-    id: number,
-  ): Promise<IAdvertisement> {
-    try {
-      const response = await fetch(
-        `${import.meta.env.VITE_BASE_RUL}advertisements/${id}`,
-        {
-          method: 'PATCH',
-          headers: {
-            'Content-Type': 'application/json;charset=utf-8',
-          },
-          body: JSON.stringify(body),
-        },
-      );
-      return response.json();
     } catch (error) {
       throw new Error(`Fetching error ${error}`);
     }

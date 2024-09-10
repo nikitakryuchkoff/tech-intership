@@ -7,12 +7,20 @@ export interface IAdvertisement {
   views: number;
   description?: string;
 }
+export interface ICreateAdvertisementFormData {
+  title: string;
+  image: string;
+  description?: string;
+  price: number;
+  likes: number;
+  views: number;
+}
 
 export interface IOrder {
   orderNumber: number;
   items: IAdvertisement[];
   totalPrice: number;
-  creationDate: string;
+  createdAt: string;
   status: string;
   id: number;
 }

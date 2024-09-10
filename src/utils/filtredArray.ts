@@ -1,22 +1,16 @@
-import { IAdvertisement } from '../types';
+function modifySortOption(sortType: string, sortOrder: string) {
+  const order = sortOrder === 'По возрастанию' ? 'asc' : 'desc';
 
-function filtredArray(
-  sortedAdvertisements: IAdvertisement[],
-  sortType: string,
-  sortOrder: string,
-) {
-  if (sortType === 'Цена') {
-    sortedAdvertisements.sort((a, b) =>
-      sortOrder === 'По возрастанию' ? a.price - b.price : b.price - a.price,
-    );
-  } else if (sortType === 'Просмотры') {
-    sortedAdvertisements.sort((a, b) =>
-      sortOrder === 'По возрастанию' ? a.views - b.views : b.views - a.views,
-    );
-  } else if (sortType === 'Лайки') {
-    sortedAdvertisements.sort((a, b) =>
-      sortOrder === 'По возрастанию' ? a.likes - b.likes : b.likes - a.likes,
-    );
+  switch (sortType) {
+    case 'Цена':
+      return { name: 'price', order };
+    case 'Просмотры':
+      return { name: 'views', order };
+    case 'Лайки':
+      return { name: 'likes', order };
+    case 'Статус':
+      return { name: 'status', order: sortOrder !== 'Все' ? sortOrder : '' };
   }
 }
-export default filtredArray;
+
+export default modifySortOption;

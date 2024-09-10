@@ -1,37 +1,10 @@
 {
   "advertisements": [
     {
-      "title": "Телевизор Samsung 43\"",
-      "price": 45000,
-      "views": 112,
-      "likes": 20,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 1,
-      "description": "Качественный телевизор с диагональю 43 дюйма от компании Samsung."
-    },
-    {
-      "title": "Телевизор LG 44443\"",
-      "price": 55000,
-      "views": 130,
-      "likes": 25,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 2,
-      "description": "Модель Samsung с диагональю 50 дюймов и высоким разрешением."
-    },
-    {
-      "title": "Телевизор LG 43\"",
-      "price": 12345,
-      "views": 150,
-      "likes": 30,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png",
-      "id": 3,
-      "description": "Телевизор LG с диагональю 43 дюйма, отличающийся яркостью изображения."
-    },
-    {
       "title": "Машина",
       "image": "https://cdn.ingos.ru/images/blog/samye-dorogie-avtomobili_shut.jpg",
       "description": "Машина мощная ",
-      "price": "125000",
+      "price": 125000,
       "likes": "0",
       "views": "0",
       "id": 4
@@ -40,7 +13,7 @@
       "title": "Телевизор",
       "image": "https://n-l-e.ru/upload/iblock/962/yl3qr5p06dv0x74qyxmy1xht0ytd1cnb/99f0a040_0cdf_11ed_811a_00505699e537_2.jpeg",
       "description": "Телевизор большой",
-      "price": "100000",
+      "price": 100000,
       "likes": "0",
       "views": "0",
       "id": 5
@@ -49,7 +22,7 @@
       "title": "Айфон 15 про макс",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNvrlpsi4PcWdmMnMtB2IdH2BMTssp40m1gQ&s",
       "description": "Крутой айфон 15 про макс, почти новый",
-      "price": "110000",
+      "price": 110000,
       "likes": "0",
       "views": "0",
       "id": 6
@@ -58,7 +31,7 @@
       "title": "Макбук М3 процессор",
       "image": "https://mac77.ru/wp-content/uploads/macbook-pro-13-touch-bar-mpxx2ll-a-2017-silver_RAMKA.jpg",
       "description": "Новый макбук прямиков из Калифорнии)",
-      "price": "200000",
+      "price": 200000,
       "likes": "0",
       "views": "0",
       "id": 7
@@ -67,7 +40,7 @@
       "title": "Айпад",
       "image": "https://store-apple.msk.ru/image/cache/catalog/tovary/ipad/ipad-pro-2022/ipad-pro-12-9-serebristyy-800x800.png",
       "description": "Новенький айпад",
-      "price": "500000",
+      "price": 500000,
       "likes": "0",
       "views": "0",
       "id": 8
@@ -76,7 +49,7 @@
       "title": "Монитор 34 д",
       "image": "https://img.mvideo.ru/Big/30059511bb.jpg",
       "description": "Изогнутый монитор - рай для геймеров",
-      "price": "1500000",
+      "price": 1500000,
       "likes": "0",
       "views": "0",
       "id": 9
@@ -85,7 +58,7 @@
       "title": "Логотип компании Авито",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvnRcqoE0OXC7YZGESvglknt2QW2XnmCgeSA&s",
       "description": "Самый новый дизайн логотипа компании",
-      "price": "100000000",
+      "price": 100000000,
       "likes": "0",
       "views": "0",
       "id": 10
@@ -94,7 +67,7 @@
       "title": "Шрек",
       "image": "https://cdn.forbes.ru/forbes-static/new/2024/07/1a97fec5-d64b-47a2-8a18-df96b9cc13c3-668e4b6f8568e.jpg",
       "description": "Всеми известный Шрек!",
-      "price": "90000",
+      "price": 90000,
       "likes": "0",
       "views": "0",
       "id": 11
@@ -103,11 +76,164 @@
       "title": "Часы мужские",
       "image": "https://time-logo.ru/images/detailed/3/volans-g2.jpg",
       "description": "Часы для настоящих тимлидов!",
-      "price": "5000",
+      "price": 5000,
       "likes": "0",
       "views": "0",
       "id": 12
+    },
+    {
+      "title": "2к квартира м. Белорусская",
+      "image": "https://salon.ru/storage/thumbs/gallery/631/630382/835_3500_s265.jpg",
+      "description": "Уютная, просторная квартира в центре Москвы!",
+      "price": 100000000,
+      "likes": "0",
+      "views": "0",
+      "id": 13
+    },
+    {
+      "title": "Большой дом",
+      "image": "https://b-h-c.ru/upload/iblock/c64/c642fec00f3ccfac1dda447dace754a1.jpg",
+      "description": "Большой дом вдали от города",
+      "price": 1000000000,
+      "likes": 0,
+      "views": 0,
+      "id": 14
+    },
+    {
+      "title": "Коробка пустая",
+      "price": 10,
+      "image": "https://karton33.ru/images/kristall/obychnyj_korob.jpg",
+      "likes": 0,
+      "views": 0,
+      "id": 15
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "id": 1,
+      "items": [
+        {
+          "title": "Машина",
+          "image": "https://cdn.ingos.ru/images/blog/samye-dorogie-avtomobili_shut.jpg",
+          "description": "Машина мощная",
+          "price": 125000,
+          "likes": "0",
+          "views": "0",
+          "id": 4
+        },
+        {
+          "title": "Телевизор",
+          "image": "https://n-l-e.ru/upload/iblock/962/yl3qr5p06dv0x74qyxmy1xht0ytd1cnb/99f0a040_0cdf_11ed_811a_00505699e537_2.jpeg",
+          "description": "Телевизор большой",
+          "price": 100000,
+          "likes": "0",
+          "views": "0",
+          "id": 5
+        }
+      ],
+      "totalItems": 2,
+      "totalPrice": 225000,
+      "createdAt": "2024-09-10",
+      "status": "Завершен"
+    },
+    {
+      "id": 2,
+      "items": [
+        {
+          "title": "Айфон 15 про макс",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNvrlpsi4PcWdmMnMtB2IdH2BMTssp40m1gQ&s",
+          "description": "Крутой айфон 15 про макс, почти новый",
+          "price": 110000,
+          "likes": "0",
+          "views": "0",
+          "id": 6
+        },
+        {
+          "title": "Макбук М3 процессор",
+          "image": "https://mac77.ru/wp-content/uploads/macbook-pro-13-touch-bar-mpxx2ll-a-2017-silver_RAMKA.jpg",
+          "description": "Новый макбук прямиков из Калифорнии)",
+          "price": 200000,
+          "likes": "0",
+          "views": "0",
+          "id": 7
+        }
+      ],
+      "totalItems": 2,
+      "totalPrice": 310000,
+      "createdAt": "2024-09-09",
+      "status": "Завершен"
+    },
+    {
+      "id": 3,
+      "items": [
+        {
+          "title": "Айпад",
+          "image": "https://store-apple.msk.ru/image/cache/catalog/tovary/ipad/ipad-pro-2022/ipad-pro-12-9-serebristyy-800x800.png",
+          "description": "Новенький айпад",
+          "price": 500000,
+          "likes": "0",
+          "views": "0",
+          "id": 8
+        },
+        {
+          "title": "Монитор 34 д",
+          "image": "https://img.mvideo.ru/Big/30059511bb.jpg",
+          "description": "Изогнутый монитор - рай для геймеров",
+          "price": 1500000,
+          "likes": "0",
+          "views": "0",
+          "id": 9
+        }
+      ],
+      "totalItems": 2,
+      "totalPrice": 2000000,
+      "createdAt": "2024-09-08",
+      "status": "Завершен"
+    },
+    {
+      "id": 4,
+      "items": [
+        {
+          "title": "Логотип компании Авито",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvnRcqoE0OXC7YZGESvglknt2QW2XnmCgeSA&s",
+          "description": "Самый новый дизайн логотипа компании",
+          "price": 100000000,
+          "likes": "0",
+          "views": "0",
+          "id": 10
+        }
+      ],
+      "totalItems": 1,
+      "totalPrice": 100000000,
+      "createdAt": "2024-09-07",
+      "status": "В процессе"
+    },
+    {
+      "id": 5,
+      "items": [
+        {
+          "title": "Шрек",
+          "image": "https://cdn.forbes.ru/forbes-static/new/2024/07/1a97fec5-d64b-47a2-8a18-df96b9cc13c3-668e4b6f8568e.jpg",
+          "description": "Всеми известный Шрек!",
+          "price": 90000,
+          "likes": "0",
+          "views": "0",
+          "id": 11
+        },
+        {
+          "title": "Часы мужские",
+          "image": "https://time-logo.ru/images/detailed/3/volans-g2.jpg",
+          "description": "Часы для настоящих тимлидов!",
+          "price": 5000,
+          "likes": "0",
+          "views": "0",
+          "id": 12
+        }
+      ],
+      "totalItems": 2,
+      "totalPrice": 95000,
+      "createdAt": "2024-09-06",
+      "status": "В процессе"
+    }
+  ]
 }

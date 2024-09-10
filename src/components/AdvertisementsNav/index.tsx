@@ -3,7 +3,7 @@ import { Filter, SearchInput, Select } from '..';
 
 interface AdvertisementsNavProps {
   setSearchQuery: (query: string) => void;
-  setLimit: (limit: number) => void;
+  setter: React.Dispatch<React.SetStateAction<string>>;
   setSortOrder: (sortOrder: string) => void;
   setSortType: (sortType: string) => void;
   openModal: (flag: boolean) => void;
@@ -11,14 +11,11 @@ interface AdvertisementsNavProps {
 
 export default function AdvertisementsNav({
   setSearchQuery,
-  setLimit,
-  openModal,
+  setter,
   setSortOrder,
   setSortType,
+  openModal,
 }: AdvertisementsNavProps): JSX.Element {
-  const handleLimitChange = (value: string | number) => {
-    setLimit(typeof value === 'string' ? Number(value) : value);
-  };
   return (
     <>
       <Row className="my-4">
@@ -27,13 +24,18 @@ export default function AdvertisementsNav({
         </Col>
         <Col md={2}>
           <Select
-            setLimit={handleLimitChange}
+            setter={setter}
             options={['10', '20', '30']}
             label="Количество карточек"
           />
         </Col>
         <Col>
-          <Filter setSortOrder={setSortOrder} setSortType={setSortType} />
+          <Filter
+            setSortOrder={setSortOrder}
+            setSortType={setSortType}
+            sortTypesArray={['Цена', 'Лайки', 'Просмотры']}
+            sortOrderArray={['По возрастанию', 'По убыванию']}
+          />
         </Col>
       </Row>
       <Row>

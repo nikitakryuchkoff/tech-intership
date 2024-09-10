@@ -2,64 +2,51 @@ import { useEffect, useRef, useState } from 'react';
 import OrdersList from '../../components/OrdersList';
 import { OrdersService } from '../../services';
 import { IOrder } from '../../types';
-import { Select } from '../../components';
+import { Filter, Pagination, Slider } from '../../components';
+import { LIMIT } from '../../constants';
 
 function OrdersPage(): JSX.Element {
   const [orders, setOrders] = useState<IOrder[]>([]);
   const [currentOrders, setCurrentOrders] = useState<IOrder[]>(orders);
 
-  const [statusFilter, setStatusFilter] = useState<string>('Все');
   const [page, setPage] = useState<number>(1);
   const totalCount = useRef<number>(1);
-  const [sortOrder, setSortOrder] = useState<string>('');
+
+  const [sortOrder, setSortOrder] = useState<string>('Все');
+  const [sortType, setSortType] = useState<string>('Статус');
+
+  const totalPages = Math.ceil(totalCount.current / LIMIT);
 
   useEffect(() => {
-    OrdersService.getAllOrders(page, 10).then(({ data, itemsCount }) => {
-      setOrders(data);
-      totalCount.current = itemsCount;
-    });
-  }, [page]);
+    OrdersService.getAllOrders(page, LIMIT, sortType, sortOrder).then(
+      ({ data, itemsCount }) => {
+        setOrders(data);
+        totalCount.current = itemsCount;
+      },
+    );
+  }, [page, sortOrder]);
 
   useEffect(() => {
-    if (statusFilter === 'Все') {
-      setCurrentOrders(orders);
-    } else {
-      OrdersService.getOrdersByStatusFilter(page, 10, statusFilter).then(
-        ({ data, itemsCount }) => {
-          setCurrentOrders(data);
-          totalCount.current = itemsCount;
-        },
-      );
-    }
-  }, [statusFilter, orders, page]);
-
-  useEffect(() => {
-    if (sortOrder === 'По возрастанию цены') {
-      const sortedOrders = [...currentOrders].sort(
-        (a, b) => a.totalPrice - b.totalPrice,
-      );
-      setCurrentOrders(sortedOrders);
-    } else if (sortOrder === 'По убыванию цены') {
-      const sortedOrders = [...currentOrders].sort(
-        (a, b) => b.totalPrice - a.totalPrice,
-      );
-      setCurrentOrders(sortedOrders);
-    }
-  }, [sortOrder]);
+    setCurrentOrders(orders);
+  }, [orders, page]);
 
   return (
     <>
-      <Select
-        setLimit={setStatusFilter}
-        options={['Все', 'В процессе', 'Отменен', 'Завершен']}
-        label="Выберите статус заказа"
+      <Filter
+        sortTypesArray={['Статус заказа']}
+        sortOrderArray={['Все', 'В процессе', 'Завершен', 'Отменен']}
+        setSortType={setSortType}
+        setSortOrder={setSortOrder}
       />
-      <Select
-        setLimit={setSortOrder}
-        options={['По убыванию цены', 'По возрастанию цены']}
-        label="Сортировка по цене"
-      />
+      <Slider minPrice={0} maxPrice={10000} setPriceRange={() => 1} />
       <OrdersList orders={currentOrders} setCurrentOrders={setCurrentOrders} />
+      {totalPages > 1 && (
+        <Pagination
+          currentPage={page}
+          totalPages={totalPages}
+          onPageChange={setPage}
+        />
+      )}
     </>
   );
 }

@@ -11,3 +11,4 @@ export { default as CreateAdvertisementModal } from './CreateAdvertisementModal'
 export { default as OrdersList } from './OrdersList';
 export { default as OrderItem } from './OrderItem';
 export { default as Filter } from './Filter';
+export { default as Slider } from './Slider';

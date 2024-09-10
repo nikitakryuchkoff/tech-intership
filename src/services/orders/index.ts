@@ -1,4 +1,5 @@
 import { IOrder } from '../../types';
+import modifySortOption from '../../utils/filtredArray';
 
 interface IOrdersResponse {
   data: IOrder[];
@@ -9,10 +10,14 @@ class OrdersService {
   public async getAllOrders(
     page: number = 1,
     limit: number = 10,
+    sortType: string,
+    sortOrder: string,
   ): Promise<IOrdersResponse> {
     try {
+      const sortOption = modifySortOption(sortType, sortOrder);
+
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_RUL}orders?_page=${page}&_limit=${limit}`,
+        `${import.meta.env.VITE_BASE_RUL}orders?_page=${page}&_limit=${limit}${sortOption?.order && `&status=${sortOption?.order}`}`,
         {
           method: 'GET',
           headers: {

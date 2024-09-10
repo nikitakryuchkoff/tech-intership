@@ -4,9 +4,16 @@ import { Form, Row, Col } from 'react-bootstrap';
 interface AdvertisementsFilterProps {
   setSortOrder: (value: string) => void;
   setSortType: (value: string) => void;
+  sortTypesArray: string[];
+  sortOrderArray: string[];
 }
 
-function Filter({ setSortOrder, setSortType }: AdvertisementsFilterProps) {
+function Filter({
+  setSortOrder,
+  setSortType,
+  sortTypesArray,
+  sortOrderArray,
+}: AdvertisementsFilterProps) {
   const handleSortTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSortType(e.target.value);
   };
@@ -21,19 +28,33 @@ function Filter({ setSortOrder, setSortType }: AdvertisementsFilterProps) {
         <Col md={6}>
           <Form.Group controlId="sortType">
             <Form.Label>Сортировать по:</Form.Label>
-            <Form.Select onChange={handleSortTypeChange}>
-              <option value="Цена">Цена</option>
-              <option value="Просмотры">Просмотры</option>
-              <option value="Лайки">Лайки</option>
-            </Form.Select>
+            {sortTypesArray.length > 1 ? (
+              <Form.Select onChange={handleSortTypeChange}>
+                {sortTypesArray.map((item) => (
+                  <option value={item} key={item}>
+                    {item}
+                  </option>
+                ))}
+              </Form.Select>
+            ) : (
+              <Form.Control
+                plaintext
+                readOnly
+                defaultValue={sortTypesArray[0]}
+                className="border rounded px-2"
+              />
+            )}
           </Form.Group>
         </Col>
         <Col md={6}>
           <Form.Group controlId="sortOrder">
             <Form.Label>Порядок сортировки:</Form.Label>
             <Form.Select onChange={handleSortOrderChange}>
-              <option value="По возрастанию">По возрастанию</option>
-              <option value="По убыванию">По убыванию</option>
+              {sortOrderArray.map((item) => (
+                <option value={item} key={item}>
+                  {item}
+                </option>
+              ))}
             </Form.Select>
           </Form.Group>
         </Col>
