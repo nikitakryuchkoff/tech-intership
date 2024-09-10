@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import OrdersList from '../../components/OrdersList';
 import { OrdersService } from '../../services';
-import { IOrder } from '../../types';
 import { Filter, Pagination } from '../../components';
 import { LIMIT } from '../../constants';
+import { Order } from '../../types';
 
 function OrdersPage(): JSX.Element {
-  const [orders, setOrders] = useState<IOrder[]>([]);
-  const [currentOrders, setCurrentOrders] = useState<IOrder[]>(orders);
+  const [orders, setOrders] = useState<Order[]>([]);
+  const [currentOrders, setCurrentOrders] = useState<Order[]>(orders);
 
   const [page, setPage] = useState<number>(1);
   const totalCount = useRef<number>(1);
@@ -33,10 +33,18 @@ function OrdersPage(): JSX.Element {
   return (
     <>
       <Filter
-        sortTypesArray={['Статус', 'Цена']}
+        sortTypesArray={['Статус', 'Сумма']}
         sortOrderArray={
           sortType === 'Статус'
-            ? ['Все', 'В процессе', 'Завершен', 'Отменен']
+            ? [
+                'Создан',
+                'Оплачен',
+                'В транспорте',
+                'Доставлен в пункт',
+                'Получен',
+                'Архивирован',
+                'Возврат',
+              ]
             : ['По возрастанию', 'По убыванию']
         }
         setSortType={setSortType}

@@ -1,13 +1,14 @@
 import { Card, Button, Nav } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import formatCurrency from '../../utils/formatCurrent';
 
 interface AdvertisementCardProps {
-  image: string;
+  image: string | undefined;
   title: string;
   price: number;
   views: number;
   likes: number;
-  cardId: number;
+  cardId: string;
 }
 
 const AdvertisementCard = ({
@@ -48,11 +49,12 @@ const AdvertisementCard = ({
               {title}
             </Card.Title>
             <Card.Text className="mb-2">
-              <span className="text-muted">Стоимость:</span> {price} руб.
+              <span className="text-muted">Стоимость: </span>
+              {formatCurrency(price)}
             </Card.Text>
             <Card.Text className="text-muted" style={{ fontSize: '0.9rem' }}>
-              <span>Просмотры: {views}</span> &nbsp; | &nbsp;{' '}
-              <span>Лайки: {likes}</span>
+              <i className="bi bi-eye"></i> {views} &nbsp; | &nbsp;{' '}
+              <i className="bi bi-heart"></i> {likes}
             </Card.Text>
           </div>
           <Button variant="outline-primary" size="sm" className="mt-2">

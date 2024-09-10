@@ -1,8 +1,8 @@
-import { IAdvertisement, ICreateAdvertisementFormData } from '../../types';
+import { Advertisment } from '../../types';
 import modifySortOption from '../../utils/filtredArray';
 
 interface IAdvertisementsResponse {
-  data: IAdvertisement[];
+  data: Advertisment[];
   itemsCount: number | 0;
 }
 
@@ -32,7 +32,7 @@ class AdvertismentsService {
         },
       });
 
-      const data: IAdvertisement[] = await response.json();
+      const data: Advertisment[] = await response.json();
       const itemsCount = Number(response.headers.get('X-Total-Count'));
 
       return {
@@ -44,8 +44,8 @@ class AdvertismentsService {
     }
   }
   public async createAdvertisement(
-    body: ICreateAdvertisementFormData,
-  ): Promise<IAdvertisement> {
+    body: Omit<Advertisment, 'id'>,
+  ): Promise<Advertisment> {
     try {
       const response = await fetch(
         `${import.meta.env.VITE_BASE_RUL}advertisements`,
@@ -81,11 +81,22 @@ class AdvertismentsService {
       throw new Error(`Fetching error ${error}`);
     }
   }
-
+  public async deleteAdvertisement(id: string): Promise<void> {
+    try {
+      await fetch(`${import.meta.env.VITE_BASE_RUL}advertisements/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8',
+        },
+      });
+    } catch (error) {
+      throw new Error(`Fetching error ${error}`);
+    }
+  }
   public async updateAdvertisement(
     body: Record<string, FormDataEntryValue>,
     id: number,
-  ): Promise<IAdvertisement> {
+  ): Promise<Advertisment> {
     try {
       const response = await fetch(
         `${import.meta.env.VITE_BASE_RUL}advertisements/${id}`,
@@ -118,7 +129,7 @@ class AdvertismentsService {
           },
         },
       );
-      const data: IAdvertisement[] = await response.json();
+      const data: Advertisment[] = await response.json();
 
       const itemsCount = Number(response.headers.get('X-Total-Count'));
 

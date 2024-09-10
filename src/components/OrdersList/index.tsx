@@ -1,9 +1,9 @@
-import { IOrder } from '../../types';
+import { Order } from '../../types';
 import OrderItem from '../OrderItem';
 
 interface OrdersListProps {
-  orders: IOrder[];
-  setCurrentOrders: React.Dispatch<React.SetStateAction<IOrder[]>>;
+  orders: Order[];
+  setCurrentOrders: React.Dispatch<React.SetStateAction<Order[]>>;
 }
 
 function OrdersList({ orders, setCurrentOrders }: OrdersListProps) {

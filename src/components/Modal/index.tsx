@@ -56,7 +56,6 @@ function ModalAdvertisement({
             />
           </Form.Group>
 
-          {/* Flex container for buttons */}
           <div className="d-flex justify-content-end mt-4">
             <Button
               variant="secondary"

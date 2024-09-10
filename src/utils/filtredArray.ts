@@ -1,3 +1,5 @@
+import getOrderStatus from './getOrderStatus';
+
 interface ModifySortOptionReturnValue {
   status?: any;
   name?: any;
@@ -30,9 +32,12 @@ function modifySortOption(
     case 'Лайки':
       sort = { name: '_sort=likes', order: `_order=${order}` };
       break;
+    case 'Сумма':
+      sort = { name: '_sort=total', order: `_order=${order}` };
+      break;
     case 'Статус':
       if (sortOrder !== 'Все') {
-        filter = { status: `status=${sortOrder}` };
+        filter = { status: `status=${getOrderStatus(sortOrder)}` };
       }
       break;
     default:

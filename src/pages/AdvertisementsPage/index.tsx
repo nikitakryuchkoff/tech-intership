@@ -5,14 +5,14 @@ import {
   Pagination,
   CreateAdvertisementModal,
 } from '../../components';
-import { IAdvertisement } from '../../types';
 import { AdvertismentsService } from '../../services';
 import useDebounce from '../../hooks/useDebounce';
+import { Advertisment } from '../../types';
 
 export default function AdvertisementsPage(): JSX.Element {
-  const [advertisements, setAdvertisements] = useState<IAdvertisement[]>([]);
+  const [advertisements, setAdvertisements] = useState<Advertisment[]>([]);
   const [currentAdvertisements, setCurrentAdvertisements] = useState<
-    IAdvertisement[]
+    Advertisment[]
   >([]);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const debouncedQuery = useDebounce<string>(searchQuery, 333);

@@ -1,8 +1,8 @@
-import { IOrder } from '../../types';
+import { Order } from '../../types';
 import modifySortOption from '../../utils/filtredArray';
 
 interface IOrdersResponse {
-  data: IOrder[];
+  data: Order[];
   itemsCount: number | 0;
 }
 
@@ -15,7 +15,6 @@ class OrdersService {
   ): Promise<IOrdersResponse> {
     try {
       const sortOption = modifySortOption(sortType, sortOrder);
-      console.log(sortOption);
 
       let query = `${import.meta.env.VITE_BASE_RUL}orders?_page=${page}&_limit=${limit}`;
 
@@ -34,7 +33,7 @@ class OrdersService {
         },
       });
 
-      const data: IOrder[] = await response.json();
+      const data: Order[] = await response.json();
 
       const itemsCount = Number(response.headers.get('X-Total-Count'));
 
@@ -63,7 +62,7 @@ class OrdersService {
         },
       );
 
-      const data: IOrder[] = await response.json();
+      const data: Order[] = await response.json();
 
       const itemsCount = Number(response.headers.get('X-Total-Count'));
 
@@ -76,7 +75,7 @@ class OrdersService {
     }
   }
 
-  public async changeOrderStatus(id: number): Promise<number> {
+  public async changeOrderStatus(id: string): Promise<string> {
     try {
       await fetch(`${import.meta.env.VITE_BASE_RUL}orders/${id}`, {
         method: 'PATCH',

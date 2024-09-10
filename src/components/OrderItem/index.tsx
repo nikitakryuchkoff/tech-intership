@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { Card, Button, ListGroup, Nav } from 'react-bootstrap';
-import { IOrder } from '../../types';
 import { NavLink } from 'react-router-dom';
 import { OrdersService } from '../../services';
+import formatCurrency from '../../utils/formatCurrent';
+import { Order } from '../../types';
+import getOrderStatus from '../../utils/getOrderStatus';
 
 interface OrderItemProps {
-  order: IOrder;
-  setCurrentOrders: React.Dispatch<React.SetStateAction<IOrder[]>>;
+  order: Order;
+  setCurrentOrders: React.Dispatch<React.SetStateAction<Order[]>>;
 }
 
 function OrderItem({ order, setCurrentOrders }: OrderItemProps) {
@@ -16,14 +18,12 @@ function OrderItem({ order, setCurrentOrders }: OrderItemProps) {
     setShowProducts((prev) => !prev);
   };
 
-  const handleCompleteOrder = async (id: number) => {
+  const handleCompleteOrder = async (id: string) => {
     try {
       await OrdersService.changeOrderStatus(id);
-      setCurrentOrders((prevOrders: IOrder[]) => {
+      setCurrentOrders((prevOrders) => {
         return prevOrders.map((orderItem) =>
-          orderItem.id === id
-            ? { ...orderItem, status: 'Завершен' }
-            : orderItem,
+          orderItem.id === id ? { ...orderItem, status: 4 } : orderItem,
         );
       });
     } catch (error) {
@@ -39,19 +39,19 @@ function OrderItem({ order, setCurrentOrders }: OrderItemProps) {
           <strong>Количество товаров:</strong> {order.items.length}
         </Card.Text>
         <Card.Text>
-          <strong>Стоимость заказа:</strong> {order.price} ₽
+          <strong>Стоимость заказа:</strong> {formatCurrency(order.total)}
         </Card.Text>
         <Card.Text>
           <strong>Дата создания заказа:</strong> {order.createdAt}
         </Card.Text>
         <Card.Text>
-          <strong>Статус:</strong> {order.status}
+          <strong>Статус:</strong> {getOrderStatus(order.status, true)}
         </Card.Text>
         {showProducts && (
           <ListGroup className="mt-3">
             {order.items.map((item) => (
               <Nav.Link as={NavLink} to={`/${item.id}`} key={item.id}>
-                <ListGroup.Item key={item.id}>{item.title}</ListGroup.Item>
+                <ListGroup.Item key={item.id}>{item.name}</ListGroup.Item>
               </Nav.Link>
             ))}
           </ListGroup>
@@ -61,7 +61,7 @@ function OrderItem({ order, setCurrentOrders }: OrderItemProps) {
             {showProducts ? 'Скрыть товары' : 'Показать все товары'}
           </Button>
 
-          {order.status !== 'Завершен' && (
+          {order.status !== 4 && (
             <Button
               className="mx-3"
               variant="success"

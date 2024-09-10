@@ -1,13 +1,13 @@
 import React from 'react';
 import { AdvertismentsService } from '../../services';
-import { IAdvertisement, ICreateAdvertisementFormData } from '../../types';
 import { ModalAdvertisement } from '..';
+import { Advertisment } from '../../types';
 
 interface CreateAdvertisementModalProps {
   show: boolean;
   closeModal: (flag: boolean) => void;
   setCurrentAdvertisements: React.Dispatch<
-    React.SetStateAction<IAdvertisement[]>
+    React.SetStateAction<Advertisment[]>
   >;
 }
 
@@ -20,12 +20,13 @@ function CreateAdvertisementModal({
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
-    const data: ICreateAdvertisementFormData = {
-      title: formData.get('title') as string,
+    const data: Omit<Advertisment, 'id'> = {
+      name: formData.get('title') as string,
       price: Number(formData.get('price')),
-      image: formData.get('title') as string,
+      imageUrl: formData.get('title') as string,
       likes: 0,
       views: 0,
+      createdAt: new Date().toISOString(),
     };
 
     const newItem = await AdvertismentsService.createAdvertisement(data);

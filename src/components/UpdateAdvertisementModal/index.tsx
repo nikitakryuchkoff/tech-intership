@@ -1,13 +1,13 @@
 import React from 'react';
 import { AdvertismentsService } from '../../services';
-import { IAdvertisement } from '../../types';
 import { ModalAdvertisement } from '..';
 import checkEmptyValues from '../../utils/checkEmptyValues';
+import { Advertisment } from '../../types';
 
 interface UpdateAdvertisementModalProps {
   show: boolean;
   closeModal: (flag: boolean) => void;
-  setCurrentAdvertisement: (advertisement: IAdvertisement | undefined) => void;
+  setCurrentAdvertisement: (advertisement: Advertisment | undefined) => void;
   id: number;
 }
 

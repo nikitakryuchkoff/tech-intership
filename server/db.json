@@ -1,239 +1,144 @@
 {
   "advertisements": [
     {
-      "title": "Машина",
-      "image": "https://cdn.ingos.ru/images/blog/samye-dorogie-avtomobili_shut.jpg",
-      "description": "Машина мощная ",
-      "price": 125000,
-      "likes": "0",
-      "views": "0",
-      "id": 4
+      "id": "1",
+      "name": "Стул старинный",
+      "description": "Очень красивый",
+      "price": 2000,
+      "createdAt": "2022-08-12T20:16:55.351Z",
+      "views": 20,
+      "likes": 2,
+      "imageUrl": "https://kontora-k.ru/s_img/23609.jpg"
     },
     {
-      "title": "Телевизор",
-      "image": "https://n-l-e.ru/upload/iblock/962/yl3qr5p06dv0x74qyxmy1xht0ytd1cnb/99f0a040_0cdf_11ed_811a_00505699e537_2.jpeg",
-      "description": "Телевизор большой",
-      "price": 100000,
-      "likes": "0",
-      "views": "0",
-      "id": 5
+      "id": "2",
+      "name": "Ведро снега",
+      "description": "Последняя возможность купить по выгодной цене!",
+      "price": 3000,
+      "createdAt": "2023-08-12T20:16:55.351Z",
+      "views": 77832,
+      "likes": 45666,
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmFX6Z49YvURx-_0bB-1H7NytEK-1L5qbelg&s"
     },
     {
-      "title": "Айфон 15 про макс",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNvrlpsi4PcWdmMnMtB2IdH2BMTssp40m1gQ&s",
-      "description": "Крутой айфон 15 про макс, почти новый",
-      "price": 110000,
-      "likes": "0",
-      "views": "0",
-      "id": 6
+      "id": "3",
+      "name": "Плащ невидимка",
+      "price": 10000000,
+      "createdAt": "2024-08-12T20:16:55.351Z",
+      "views": 900,
+      "likes": 19,
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh7E90YzE6b9cSP9gHca8MlQNr58n6nnIB4w&s"
     },
     {
-      "title": "Макбук М3 процессор",
-      "image": "https://mac77.ru/wp-content/uploads/macbook-pro-13-touch-bar-mpxx2ll-a-2017-silver_RAMKA.jpg",
-      "description": "Новый макбук прямиков из Калифорнии)",
-      "price": 200000,
-      "likes": "0",
-      "views": "0",
-      "id": 7
-    },
-    {
-      "title": "Айпад",
-      "image": "https://store-apple.msk.ru/image/cache/catalog/tovary/ipad/ipad-pro-2022/ipad-pro-12-9-serebristyy-800x800.png",
-      "description": "Новенький айпад",
-      "price": 500000,
-      "likes": "0",
-      "views": "0",
-      "id": 8
-    },
-    {
-      "title": "Монитор 34 д",
-      "image": "https://img.mvideo.ru/Big/30059511bb.jpg",
-      "description": "Изогнутый монитор - рай для геймеров",
-      "price": 1500000,
-      "likes": "0",
-      "views": "0",
-      "id": 9
-    },
-    {
-      "title": "Логотип компании Авито",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvnRcqoE0OXC7YZGESvglknt2QW2XnmCgeSA&s",
-      "description": "Самый новый дизайн логотипа компании",
-      "price": 100000000,
-      "likes": "0",
-      "views": "0",
-      "id": 10
-    },
-    {
-      "title": "Шрек",
-      "image": "https://cdn.forbes.ru/forbes-static/new/2024/07/1a97fec5-d64b-47a2-8a18-df96b9cc13c3-668e4b6f8568e.jpg",
-      "description": "Всеми известный Шрек!",
-      "price": 90000,
-      "likes": "0",
-      "views": "0",
-      "id": 11
-    },
-    {
-      "title": "Часы мужские",
-      "image": "https://time-logo.ru/images/detailed/3/volans-g2.jpg",
-      "description": "Часы для настоящих тимлидов!",
+      "id": "4",
+      "name": "Ковер",
+      "description": "Стильный модный, как у бабушки в деревне :)))",
       "price": 5000,
-      "likes": "0",
-      "views": "0",
-      "id": 12
+      "createdAt": "2024-07-12T20:16:55.351Z",
+      "views": 2000000,
+      "likes": 2,
+      "imageUrl": "https://panna.ru/images/4/6/d100517502114l.jpg"
     },
     {
-      "title": "2к квартира м. Белорусская",
-      "image": "https://salon.ru/storage/thumbs/gallery/631/630382/835_3500_s265.jpg",
-      "description": "Уютная, просторная квартира в центре Москвы!",
-      "price": 100000000,
-      "likes": "0",
-      "views": "0",
-      "id": 13
-    },
-    {
-      "title": "Большой дом",
-      "image": "https://b-h-c.ru/upload/iblock/c64/c642fec00f3ccfac1dda447dace754a1.jpg",
-      "description": "Большой дом вдали от города",
-      "price": 1000000000,
-      "likes": 0,
+      "id": "5",
+      "name": "Носки",
+      "price": 6000,
+      "createdAt": "2024-06-12T20:16:55.351Z",
       "views": 0,
-      "id": 14
+      "likes": 0,
+      "imageUrl": "https://nosmag2.ru/uploads/photos/da02600fdfa0af62b6d81e8e2cfc1ae2.jpg"
     },
     {
-      "title": "Коробка пустая",
-      "price": 10,
-      "image": "https://karton33.ru/images/kristall/obychnyj_korob.jpg",
+      "id": "6",
+      "name": "Картонная коробка",
+      "description": "Прочная.",
+      "price": 7000,
+      "createdAt": "2024-04-12T20:16:55.351Z",
+      "views": 1,
       "likes": 0,
-      "views": 0,
-      "id": 15
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf6eacrKlGIo6ZiebEljUtWfy0B072Lt9j8w&s"
+    },
+    {
+      "id": "7",
+      "name": "Угловой диван",
+      "description": "Стих для привлечения внимания: дама сдавала в багаж диван, чемодан, саквояж, картину, корзину, картонку и маленькую собачонку. выдали даме на станции четыре зеленых квитанции о том, что получен багаж: диван, чемодан, саквояж, картина, корзина, картонка и маленькая собачонка. вещи везут на перрон. кидают в открытый вагон. готово. уложен багаж: диван, чемодан, саквояж, картина, корзина, картонка и маленькая собачонка. но только раздался звонок, удрал из вагона щенок. хватились на станции дно: потеряно место одно. в испуге считают багаж: диван, чемодан, саквояж, картина, корзина, картонка… — товарищи! где собачонка? вдруг видят: стоит у колес огромный взъерошенный пес. поймали его — и в багаж, туда, где лежал саквояж, картина, корзина, картонка, где прежде была собачонка. приехали в город житомир. носильщик пятнадцатый номер везет на тележке багаж: диван, чемодан, саквояж, картину, корзину, картонку, а сзади ведут собачонку. собака-то как зарычит, а барыня как закричит: — разбойники! воры! уроды! собака — не той породы! швырнула она чемодан, ногой отпихнула диван, картину, корзину, картонку… — отдайте мою собачонку! — позвольте, мамаша! на станции, согласно багажной квитанции, от вас получили багаж: диван, чемодан, саквояж, картину, корзину, картонку и маленькую собачонку. однако за время пути собака могла подрасти!",
+      "price": 999,
+      "createdAt": "2024-08-12T14:16:55.351Z",
+      "views": 20000,
+      "likes": 1,
+      "imageUrl": "https://sola-m.ru/wp-content/uploads/2022/10/uglovoj-divan-soft-9-1.jpg"
+    },
+    {
+      "id": "8",
+      "name": "Новый айфон",
+      "price": 100000,
+      "createdAt": "2024-08-12T12:16:55.351Z",
+      "views": 200000,
+      "likes": 302,
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-m4E1Un2p2f_XE17nFW0mxQgPz3ZM19R9Ug&s"
     }
   ],
   "orders": [
     {
-      "id": 1,
+      "id": "1",
+      "status": 0,
+      "createdAt": "2024-08-12T20:20:55.351Z",
+      "finishedAt": "",
+      "total": 314000,
+      "deliveryWay": "mail",
       "items": [
         {
-          "title": "Машина",
-          "image": "https://cdn.ingos.ru/images/blog/samye-dorogie-avtomobili_shut.jpg",
-          "description": "Машина мощная",
-          "price": 125000,
-          "likes": "0",
-          "views": "0",
-          "id": 4
-        },
-        {
-          "title": "Телевизор",
-          "image": "https://n-l-e.ru/upload/iblock/962/yl3qr5p06dv0x74qyxmy1xht0ytd1cnb/99f0a040_0cdf_11ed_811a_00505699e537_2.jpeg",
-          "description": "Телевизор большой",
+          "id": "8",
+          "name": "Новый айфон",
           "price": 100000,
-          "likes": "0",
-          "views": "0",
-          "id": 5
-        }
-      ],
-      "totalItems": 2,
-      "price": 225000,
-      "createdAt": "2024-09-10",
-      "status": "Отменен"
-    },
-    {
-      "id": 2,
-      "items": [
-        {
-          "title": "Айфон 15 про макс",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNvrlpsi4PcWdmMnMtB2IdH2BMTssp40m1gQ&s",
-          "description": "Крутой айфон 15 про макс, почти новый",
-          "price": 110000,
-          "likes": "0",
-          "views": "0",
-          "id": 6
+          "createdAt": "2024-08-12T12:16:55.351Z",
+          "views": 200000,
+          "likes": 302,
+          "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-m4E1Un2p2f_XE17nFW0mxQgPz3ZM19R9Ug&s",
+          "count": 3
         },
         {
-          "title": "Макбук М3 процессор",
-          "image": "https://mac77.ru/wp-content/uploads/macbook-pro-13-touch-bar-mpxx2ll-a-2017-silver_RAMKA.jpg",
-          "description": "Новый макбук прямиков из Калифорнии)",
-          "price": 200000,
-          "likes": "0",
-          "views": "0",
-          "id": 7
+          "id": "6",
+          "name": "Картонная коробка",
+          "description": "Почная.",
+          "price": 7000,
+          "createdAt": "2024-04-12T20:16:55.351Z",
+          "views": 1,
+          "likes": 0,
+          "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf6eacrKlGIo6ZiebEljUtWfy0B072Lt9j8w&s",
+          "count": 2
         }
-      ],
-      "totalItems": 2,
-      "price": 310000,
-      "createdAt": "2024-09-09",
-      "status": "Завершен"
+      ]
     },
     {
-      "id": 3,
+      "id": "2",
+      "status": 4,
+      "createdAt": "2024-08-12T20:20:55.351Z",
+      "finishedAt": "2024-08-12T20:25:55.351Z",
+      "total": 33000,
+      "deliveryWay": "sdek",
       "items": [
         {
-          "title": "Айпад",
-          "image": "https://store-apple.msk.ru/image/cache/catalog/tovary/ipad/ipad-pro-2022/ipad-pro-12-9-serebristyy-800x800.png",
-          "description": "Новенький айпад",
-          "price": 500000,
-          "likes": "0",
-          "views": "0",
-          "id": 8
+          "id": "2",
+          "name": "Ведро снега",
+          "description": "Последняя возможность купить по выгодной цене!",
+          "price": 3000,
+          "createdAt": "2023-08-12T20:16:55.351Z",
+          "views": 77832,
+          "likes": 45666,
+          "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmFX6Z49YvURx-_0bB-1H7NytEK-1L5qbelg&s",
+          "count": 10
         },
         {
-          "title": "Монитор 34 д",
-          "image": "https://img.mvideo.ru/Big/30059511bb.jpg",
-          "description": "Изогнутый монитор - рай для геймеров",
-          "price": 1500000,
-          "likes": "0",
-          "views": "0",
-          "id": 9
+          "id": "5",
+          "name": "Носки",
+          "price": 6000,
+          "createdAt": "2024-06-12T20:16:55.351Z",
+          "views": 0,
+          "likes": 0,
+          "imageUrl": "https://nosmag2.ru/uploads/photos/da02600fdfa0af62b6d81e8e2cfc1ae2.jpg"
         }
-      ],
-      "totalItems": 2,
-      "price": 2000000,
-      "createdAt": "2024-09-08",
-      "status": "Завершен"
-    },
-    {
-      "id": 4,
-      "items": [
-        {
-          "title": "Логотип компании Авито",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvnRcqoE0OXC7YZGESvglknt2QW2XnmCgeSA&s",
-          "description": "Самый новый дизайн логотипа компании",
-          "price": 100000000,
-          "likes": "0",
-          "views": "0",
-          "id": 10
-        }
-      ],
-      "totalItems": 1,
-      "price": 100000000,
-      "createdAt": "2024-09-07",
-      "status": "В процессе"
-    },
-    {
-      "id": 5,
-      "items": [
-        {
-          "title": "Шрек",
-          "image": "https://cdn.forbes.ru/forbes-static/new/2024/07/1a97fec5-d64b-47a2-8a18-df96b9cc13c3-668e4b6f8568e.jpg",
-          "description": "Всеми известный Шрек!",
-          "price": 90000,
-          "likes": "0",
-          "views": "0",
-          "id": 11
-        },
-        {
-          "title": "Часы мужские",
-          "image": "https://time-logo.ru/images/detailed/3/volans-g2.jpg",
-          "description": "Часы для настоящих тимлидов!",
-          "price": 5000,
-          "likes": "0",
-          "views": "0",
-          "id": 12
-        }
-      ],
-      "totalItems": 2,
-      "price": 95000,
-      "createdAt": "2024-09-06",
-      "status": "В процессе"
+      ]
     }
   ]
 }
