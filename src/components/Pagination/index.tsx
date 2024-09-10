@@ -1,5 +1,4 @@
 import Pagination from 'react-bootstrap/Pagination';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 interface PaginationComponentProps {
   currentPage: number;

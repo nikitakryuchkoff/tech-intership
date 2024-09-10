@@ -5,18 +5,22 @@ import { NavLink } from 'react-router-dom';
 
 export default function NavBar(): JSX.Element {
   return (
-    <Navbar bg="dark" data-bs-theme="dark">
+    <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
-        <Nav className="d-flex align-items-center justify-content-between w-100">
-          <div className="d-flex">
-            <Nav.Link as={NavLink} to="/">
+        <Navbar.Brand as={NavLink} to="/" className="fw-bold">
+          AvitoTech
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbar-nav" />
+        <Navbar.Collapse id="navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link as={NavLink} to="/" className="mx-2">
               Объявления
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/orders">
+            <Nav.Link as={NavLink} to="/orders" className="mx-2">
               Заказы
             </Nav.Link>
-          </div>
-        </Nav>
+          </Nav>
+        </Navbar.Collapse>
       </Container>
     </Navbar>
   );

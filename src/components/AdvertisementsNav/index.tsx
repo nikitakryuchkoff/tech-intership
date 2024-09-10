@@ -1,11 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
-import { AdvertismentsService } from '../../services';
 import { Button, Col, Row } from 'react-bootstrap';
-import { SearchInput, SelectCardCount } from '..';
+import { Filter, SearchInput, Select } from '..';
 
 interface AdvertisementsNavProps {
   setSearchQuery: (query: string) => void;
   setLimit: (limit: number) => void;
+  setSortOrder: (sortOrder: string) => void;
+  setSortType: (sortType: string) => void;
   openModal: (flag: boolean) => void;
 }
 
@@ -13,7 +13,12 @@ export default function AdvertisementsNav({
   setSearchQuery,
   setLimit,
   openModal,
+  setSortOrder,
+  setSortType,
 }: AdvertisementsNavProps): JSX.Element {
+  const handleLimitChange = (value: string | number) => {
+    setLimit(typeof value === 'string' ? Number(value) : value);
+  };
   return (
     <>
       <Row className="my-4">
@@ -21,7 +26,14 @@ export default function AdvertisementsNav({
           <SearchInput setSearchQuery={setSearchQuery} />
         </Col>
         <Col md={2}>
-          <SelectCardCount setLimit={setLimit} />
+          <Select
+            setLimit={handleLimitChange}
+            options={['10', '20', '30']}
+            label="Количество карточек"
+          />
+        </Col>
+        <Col>
+          <Filter setSortOrder={setSortOrder} setSortType={setSortType} />
         </Col>
       </Row>
       <Row>

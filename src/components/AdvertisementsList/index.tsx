@@ -1,9 +1,9 @@
 import { Col, Row } from 'react-bootstrap';
 import { AdvertisementCard } from '..';
-import { IAdvertisements } from '../../types';
+import { IAdvertisement } from '../../types';
 
 interface AdvertisementsListProps {
-  currentAdvertisements: IAdvertisements[];
+  currentAdvertisements: IAdvertisement[];
 }
 
 export default function AdvertisementsList({

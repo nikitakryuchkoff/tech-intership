@@ -14,4 +14,5 @@ export interface IOrder {
   totalPrice: number;
   creationDate: string;
   status: string;
+  id: number;
 }

@@ -5,7 +5,7 @@ import { AdvertismentsService } from '../../services';
 import type { IAdvertisement } from '../../types';
 import UpdateAdvertisementModal from '../../components/UpdateAdvertisementModal';
 
-const AdvertisementPage = (): JSX.Element => {
+function AdvertisementPage(): JSX.Element {
   const { id } = useParams<{ id: string }>();
   const [advertisement, setAdvertisement] = useState<
     IAdvertisement | undefined
@@ -13,10 +13,14 @@ const AdvertisementPage = (): JSX.Element => {
   const [modal, setModal] = useState<boolean>(false);
 
   useEffect(() => {
-    AdvertismentsService.getAdvertisementById(Number(id)).then((data) => {
-      setAdvertisement(data[0]);
-    });
+    if (id) {
+      AdvertismentsService.getAdvertisementById(Number(id)).then((data) => {
+        setAdvertisement(data[0]);
+      });
+    }
   }, [id]);
+
+  if (!advertisement) return <div>Loading...</div>;
 
   return (
     <Container className="mt-4">
@@ -30,29 +34,23 @@ const AdvertisementPage = (): JSX.Element => {
             />
           </Card>
         </Col>
-
         <Col md={6}>
           <Card>
             <Card.Body>
               <Card.Title className="mb-4">{advertisement.title}</Card.Title>
-
               <Card.Text>
                 <strong>Стоимость:</strong> {advertisement.price} руб.
               </Card.Text>
-
               <Card.Text>
                 <strong>Просмотры:</strong> {advertisement.views}
               </Card.Text>
-
               <Card.Text>
                 <strong>Лайки:</strong> {advertisement.likes}
               </Card.Text>
-
               <Card.Text>
                 <strong>Описание:</strong>{' '}
                 {advertisement.description || 'Описание не предоставлено.'}
               </Card.Text>
-
               <Button variant="danger" size="lg">
                 Купить сейчас
               </Button>
@@ -70,12 +68,12 @@ const AdvertisementPage = (): JSX.Element => {
       </Row>
       <UpdateAdvertisementModal
         show={modal}
-        closeModal={setModal}
+        closeModal={() => setModal(false)}
         setCurrentAdvertisement={setAdvertisement}
         id={Number(id)}
       />
     </Container>
   );
-};
+}
 
 export default AdvertisementPage;

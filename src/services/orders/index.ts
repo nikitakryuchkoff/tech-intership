@@ -33,10 +33,15 @@ class OrdersService {
       throw new Error(`Fetching error ${error}`);
     }
   }
-  public async getOrderById(id: number) {
+
+  public async getOrdersByStatusFilter(
+    page: number = 1,
+    limit: number = 10,
+    filter: string,
+  ): Promise<IOrdersResponse> {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_RUL}orders?id=${id}`,
+        `${import.meta.env.VITE_BASE_RUL}orders?_page=${page}&_limit=${limit}&status=${filter}`,
         {
           method: 'GET',
           headers: {
@@ -45,7 +50,30 @@ class OrdersService {
         },
       );
 
-      return response.json();
+      const data: IOrder[] = await response.json();
+
+      const itemsCount = Number(response.headers.get('X-Total-Count'));
+
+      return {
+        data,
+        itemsCount,
+      };
+    } catch (error) {
+      throw new Error(`Fetching error ${error}`);
+    }
+  }
+
+  public async changeOrderStatus(id: number): Promise<number> {
+    try {
+      await fetch(`${import.meta.env.VITE_BASE_RUL}orders/${id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8',
+        },
+        body: JSON.stringify({ status: 'Завершен' }),
+      });
+
+      return id;
     } catch (error) {
       throw new Error(`Fetching error ${error}`);
     }

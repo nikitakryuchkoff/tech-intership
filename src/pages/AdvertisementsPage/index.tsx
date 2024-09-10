@@ -3,54 +3,63 @@ import {
   AdvertisementsList,
   AdvertisementsNav,
   Pagination,
+  CreateAdvertisementModal,
 } from '../../components';
 import { IAdvertisement } from '../../types';
 import { AdvertismentsService } from '../../services';
-import CreateAdvertisementModal from '../../components/CreateAdvertisementModal';
+import useDebounce from '../../hooks/useDebounce';
+import filtredArray from '../../utils/filtredArray';
 
 export default function AdvertisementsPage(): JSX.Element {
   const [advertisements, setAdvertisements] = useState<IAdvertisement[]>([]);
-  const [modal, setModal] = useState<boolean>(false);
-  const [currentAdvertisements, setCurrentAdvertisements] =
-    useState<IAdvertisement[]>(advertisements);
+  const [currentAdvertisements, setCurrentAdvertisements] = useState<
+    IAdvertisement[]
+  >([]);
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const debouncedQuery = useDebounce(searchQuery, 333);
   const [limit, setLimit] = useState<number>(10);
   const [page, setPage] = useState<number>(1);
+  const [sortOrder, setSortOrder] = useState<string>('По возрастанию');
+  const [sortType, setSortType] = useState<string>('Цена');
+  const [modal, setModal] = useState<boolean>(false);
 
   const totalCount = useRef<number>(1);
-  const totalPages = totalCount && Math.ceil(totalCount.current / limit);
+  const totalPages = Math.ceil(totalCount.current / limit);
 
-  const fetchAdvertisements = () => {
-    AdvertismentsService.getAllAdvertisements(page, limit).then(
-      ({ data, itemsCount }) => {
-        setAdvertisements(data);
-        totalCount.current = itemsCount;
-      },
-    );
+  const fetchAdvertisements = async () => {
+    const { data, itemsCount } =
+      await AdvertismentsService.getAllAdvertisements(page, limit);
+    setAdvertisements(data);
+    totalCount.current = itemsCount;
   };
 
-  const searchAdvertisements = () => {
-    AdvertismentsService.searchByTitle(searchQuery, page, limit).then(
-      ({ data, itemsCount }) => {
-        setCurrentAdvertisements(data);
-        totalCount.current = itemsCount;
-      },
+  const searchAdvertisements = async () => {
+    const { data, itemsCount } = await AdvertismentsService.searchByTitle(
+      debouncedQuery,
+      page,
+      limit,
     );
+    setCurrentAdvertisements(data);
+    totalCount.current = itemsCount;
   };
 
   useEffect(() => {
-    if (searchQuery) {
+    if (debouncedQuery) {
       searchAdvertisements();
     } else {
       fetchAdvertisements();
     }
-  }, [limit, page, searchQuery]);
+  }, [debouncedQuery, limit, page]);
 
   useEffect(() => {
-    if (!searchQuery) {
-      setCurrentAdvertisements(advertisements);
-    }
-  }, [advertisements, searchQuery]);
+    setCurrentAdvertisements(advertisements);
+  }, [advertisements]);
+
+  useEffect(() => {
+    const sortedAdvertisements = [...currentAdvertisements];
+    filtredArray(sortedAdvertisements, sortType, sortOrder);
+    setCurrentAdvertisements(sortedAdvertisements);
+  }, [sortOrder, sortType]);
 
   return (
     <>
@@ -58,9 +67,11 @@ export default function AdvertisementsPage(): JSX.Element {
         openModal={setModal}
         setSearchQuery={setSearchQuery}
         setLimit={setLimit}
+        setSortOrder={setSortOrder}
+        setSortType={setSortType}
       />
       <AdvertisementsList currentAdvertisements={currentAdvertisements} />
-      {totalPages !== undefined && totalPages > 1 && (
+      {totalPages > 1 && (
         <Pagination
           currentPage={page}
           totalPages={totalPages}
@@ -69,7 +80,7 @@ export default function AdvertisementsPage(): JSX.Element {
       )}
       <CreateAdvertisementModal
         show={modal}
-        closeModal={setModal}
+        closeModal={() => setModal(false)}
         setCurrentAdvertisements={setCurrentAdvertisements}
       />
     </>
