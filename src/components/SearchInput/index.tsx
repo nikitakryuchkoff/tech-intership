@@ -1,24 +1,23 @@
 import { Form } from 'react-bootstrap';
 
 interface SearchInputProps {
-  setSearchQuery: (value: string) => void;
+  setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const SearchInput = ({ setSearchQuery }: SearchInputProps): JSX.Element => {
-  const onChangeSearch = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ): void => {
-    setSearchQuery(e.currentTarget.value);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setSearchQuery(e.target.value);
   };
 
   return (
     <Form>
-      <Form.Group controlId="textInput">
-        <Form.Label className="text-bold">Поиск объявлений</Form.Label>
+      <Form.Group controlId="searchInput">
+        <Form.Label className="fw-bold">Поиск объявлений</Form.Label>
         <Form.Control
           type="text"
           placeholder="Введите текст"
-          onChange={(e) => onChangeSearch(e)}
+          onChange={handleChange}
+          aria-label="Поиск объявлений"
         />
       </Form.Group>
     </Form>

@@ -13,26 +13,32 @@ interface OrderItemProps {
 
 function OrderItem({ order, setCurrentOrders }: OrderItemProps) {
   const [showProducts, setShowProducts] = useState<boolean>(false);
+  const [isProcessing, setIsProcessing] = useState<boolean>(false);
 
-  const handleToggleProducts = () => {
+  const toggleProductsVisibility = () => {
     setShowProducts((prev) => !prev);
   };
 
-  const handleCompleteOrder = async (id: string) => {
+  const completeOrder = async (id: string) => {
+    setIsProcessing(true);
     try {
       await OrdersService.changeOrderStatus(id);
-      setCurrentOrders((prevOrders) => {
-        return prevOrders.map((orderItem) =>
-          orderItem.id === id ? { ...orderItem, status: 4 } : orderItem,
-        );
-      });
+      setCurrentOrders((prevOrders) =>
+        prevOrders.map((orderItem) =>
+          orderItem.id === id
+            ? { ...orderItem, status: 4, finishedAt: new Date().toISOString() }
+            : orderItem,
+        ),
+      );
     } catch (error) {
-      throw new Error(`error, ${error}`);
+      throw new Error(`Error completing order: ${error}`);
+    } finally {
+      setIsProcessing(false);
     }
   };
 
   return (
-    <Card className="my-3">
+    <Card className="my-3 shadow-sm">
       <Card.Header>Заказ №{order.id}</Card.Header>
       <Card.Body>
         <Card.Text>
@@ -44,20 +50,32 @@ function OrderItem({ order, setCurrentOrders }: OrderItemProps) {
         <Card.Text>
           <strong>Дата создания заказа:</strong> {order.createdAt}
         </Card.Text>
+        {order.finishedAt && (
+          <Card.Text>
+            <strong>Дата получения заказа:</strong> {order.finishedAt}
+          </Card.Text>
+        )}
         <Card.Text>
           <strong>Статус:</strong> {getOrderStatus(order.status, true)}
         </Card.Text>
+
         {showProducts && (
           <ListGroup className="mt-3">
             {order.items.map((item) => (
-              <Nav.Link as={NavLink} to={`/${item.id}`} key={item.id}>
-                <ListGroup.Item key={item.id}>{item.name}</ListGroup.Item>
+              <Nav.Link
+                as={NavLink}
+                to={`/advertisements/${item.id}`}
+                key={item.id}
+                target="_blank"
+              >
+                <ListGroup.Item>{item.name}</ListGroup.Item>
               </Nav.Link>
             ))}
           </ListGroup>
         )}
+
         <div className="d-flex align-items-center mt-3">
-          <Button variant="primary" onClick={handleToggleProducts}>
+          <Button variant="primary" onClick={toggleProductsVisibility}>
             {showProducts ? 'Скрыть товары' : 'Показать все товары'}
           </Button>
 
@@ -65,9 +83,10 @@ function OrderItem({ order, setCurrentOrders }: OrderItemProps) {
             <Button
               className="mx-3"
               variant="success"
-              onClick={() => handleCompleteOrder(order.id)}
+              onClick={() => completeOrder(order.id)}
+              disabled={isProcessing}
             >
-              Завершить заказ
+              {isProcessing ? 'Обработка...' : 'Завершить заказ'}
             </Button>
           )}
         </div>

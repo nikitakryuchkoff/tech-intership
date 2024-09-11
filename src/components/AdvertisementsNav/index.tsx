@@ -2,11 +2,11 @@ import { Button, Col, Row } from 'react-bootstrap';
 import { Filter, SearchInput, Select } from '..';
 
 interface AdvertisementsNavProps {
-  setSearchQuery: (query: string) => void;
+  setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
   setter: React.Dispatch<React.SetStateAction<string>>;
-  setSortOrder: (sortOrder: string) => void;
-  setSortType: (sortType: string) => void;
-  openModal: (flag: boolean) => void;
+  setSortOrder: React.Dispatch<React.SetStateAction<string>>;
+  setSortType: React.Dispatch<React.SetStateAction<string>>;
+  openModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default function AdvertisementsNav({
@@ -26,7 +26,7 @@ export default function AdvertisementsNav({
           <Select
             setter={setter}
             options={['10', '20', '30']}
-            label="Количество карточек"
+            label="Показывать"
           />
         </Col>
         <Col>

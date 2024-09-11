@@ -1,12 +1,29 @@
+import React, { memo } from 'react';
 import { Order } from '../../types';
 import OrderItem from '../OrderItem';
+import { Card, Alert } from 'react-bootstrap';
+import { SkeletonOrderItem } from '..';
 
 interface OrdersListProps {
   orders: Order[];
   setCurrentOrders: React.Dispatch<React.SetStateAction<Order[]>>;
+  loading: boolean;
 }
 
-function OrdersList({ orders, setCurrentOrders }: OrdersListProps) {
+function OrdersList({
+  orders,
+  setCurrentOrders,
+  loading,
+}: OrdersListProps): JSX.Element {
+  if (loading) {
+    return (
+      <>
+        <SkeletonOrderItem />
+        <SkeletonOrderItem />
+        <SkeletonOrderItem />
+      </>
+    );
+  }
   return (
     <>
       {orders.map((order) => (
@@ -16,8 +33,13 @@ function OrdersList({ orders, setCurrentOrders }: OrdersListProps) {
           setCurrentOrders={setCurrentOrders}
         />
       ))}
+      {orders.length === 0 && (
+        <Card className="my-3 p-4">
+          <Alert variant="info">Список заказов пуст.</Alert>
+        </Card>
+      )}
     </>
   );
 }
 
-export default OrdersList;
+export default memo(OrdersList);

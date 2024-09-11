@@ -14,7 +14,7 @@
       "id": "2",
       "name": "Ведро снега",
       "description": "Последняя возможность купить по выгодной цене!",
-      "price": 3000,
+      "price": "4300",
       "createdAt": "2023-08-12T20:16:55.351Z",
       "views": 77832,
       "likes": 45666,
@@ -46,7 +46,8 @@
       "createdAt": "2024-06-12T20:16:55.351Z",
       "views": 0,
       "likes": 0,
-      "imageUrl": "https://nosmag2.ru/uploads/photos/da02600fdfa0af62b6d81e8e2cfc1ae2.jpg"
+      "imageUrl": "https://nosmag2.ru/uploads/photos/da02600fdfa0af62b6d81e8e2cfc1ae2.jpg",
+      "description": "Это что, носки с бананами?"
     },
     {
       "id": "6",
@@ -75,68 +76,289 @@
       "createdAt": "2024-08-12T12:16:55.351Z",
       "views": 200000,
       "likes": 302,
-      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-m4E1Un2p2f_XE17nFW0mxQgPz3ZM19R9Ug&s"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-m4E1Un2p2f_XE17nFW0mxQgPz3ZM19R9Ug&s",
+      "description": "Самый новый крутой супер крутой айфон"
+    },
+    {
+      "name": "Джастин Бибер",
+      "price": 120000000,
+      "imageUrl": "https://peopletalk.ru/wp-content/uploads/2017/08/Snimok-ekrana-2017-08-05-v-21.44.22.png",
+      "likes": 0,
+      "views": 0,
+      "createdAt": "2024-09-10T19:06:23.360Z",
+      "id": "FYbWucF",
+      "description": "Настоящий Джастин Бибер!"
+    },
+    {
+      "name": "Логотип компании Avito",
+      "price": 1000000,
+      "imageUrl": "https://play-lh.googleusercontent.com/APz66mWpIbEvm2lO_UPukqQShRkbAFiudlOiLUoe-r4e_nIq7DT6BqCr1LRbqeXuSqr8",
+      "likes": 0,
+      "views": 0,
+      "createdAt": "2024-09-10T19:07:49.469Z",
+      "id": "HaKWjvV"
+    },
+    {
+      "name": "Жигули редкие!",
+      "price": "155555",
+      "imageUrl": "https://a.d-cd.net/4ce83d4s-1920.jpg",
+      "likes": 0,
+      "views": 0,
+      "createdAt": "2024-09-10T19:48:14.520Z",
+      "id": "kjcTOPE"
+    },
+    {
+      "name": "Кофе ароматный",
+      "price": 500,
+      "imageUrl": "https://3339900.ru/upload/iblock/c2d/sbyapv8r5htpl8tuv0mr1ju9zykiuqig.jpg",
+      "likes": 0,
+      "views": 0,
+      "createdAt": "2024-09-11T06:59:35.577Z",
+      "id": "jkWMH36",
+      "description": "Крутой кофе)"
+    },
+    {
+      "name": "Сырники STIM Coffee",
+      "price": "500",
+      "imageUrl": "https://avatars.mds.yandex.net/get-eda/2394388/945ea5c5de924005b2bf95be82a90564/M_height",
+      "likes": 0,
+      "views": 0,
+      "createdAt": "2024-09-11T07:00:42.118Z",
+      "id": "6WwsKjj"
+    },
+    {
+      "name": "Веселый тостер!",
+      "price": 1232,
+      "imageUrl": "https://kitfort.ru/upload/resize_cache/webp/upload/iblock/5ca/ez7e38vgwi80vmw8ojgy03473pffigj1.webp",
+      "likes": 0,
+      "views": 0,
+      "createdAt": "2024-09-11T08:52:23.635Z",
+      "description": "Самый веселый тостер",
+      "id": "DaQbeux"
     }
   ],
   "orders": [
     {
-      "id": "1",
-      "status": 0,
-      "createdAt": "2024-08-12T20:20:55.351Z",
-      "finishedAt": "",
-      "total": 314000,
+      "id": "5",
+      "status": 2,
+      "createdAt": "2024-09-10T11:30:00.000Z",
+      "finishedAt": null,
+      "total": 1000000,
+      "deliveryWay": "courier",
+      "items": [
+        {
+          "id": "HaKWjvV",
+          "name": "Логотип компании Avito",
+          "price": 1000000,
+          "imageUrl": "https://play-lh.googleusercontent.com/APz66mWpIbEvm2lO_UPukqQShRkbAFiudlOiLUoe-r4e_nIq7DT6BqCr1LRbqeXuSqr8",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "status": 3,
+      "createdAt": "2024-09-09T10:00:00.000Z",
+      "finishedAt": "2024-09-10T12:00:00.000Z",
+      "total": 120000000,
+      "deliveryWay": "pickup",
+      "items": [
+        {
+          "id": "FYbWucF",
+          "name": "Джастин Бибер",
+          "price": 120000000,
+          "imageUrl": "https://peopletalk.ru/wp-content/uploads/2017/08/Snimok-ekrana-2017-08-05-v-21.44.22.png",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "status": 1,
+      "createdAt": "2024-09-11T08:30:00.000Z",
+      "finishedAt": null,
+      "total": 500,
       "deliveryWay": "mail",
+      "items": [
+        {
+          "id": "jkWMH36",
+          "name": "Кофе ароматный",
+          "price": 500,
+          "imageUrl": "https://3339900.ru/upload/iblock/c2d/sbyapv8r5htpl8tuv0mr1ju9zykiuqig.jpg",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "status": 2,
+      "createdAt": "2024-09-10T14:00:00.000Z",
+      "finishedAt": null,
+      "total": 1232,
+      "deliveryWay": "courier",
+      "items": [
+        {
+          "id": "DaQbeux",
+          "name": "Веселый тостер!",
+          "price": 1232,
+          "description": "Самый веселый тостер",
+          "imageUrl": "https://kitfort.ru/upload/resize_cache/webp/upload/iblock/5ca/ez7e38vgwi80vmw8ojgy03473pffigj1.webp",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "status": 4,
+      "createdAt": "2024-09-09T15:00:00.000Z",
+      "finishedAt": "2024-09-11T09:00:00.000Z",
+      "total": 5000,
+      "deliveryWay": "sdek",
+      "items": [
+        {
+          "id": "5",
+          "name": "Носки",
+          "price": 6000,
+          "imageUrl": "https://nosmag2.ru/uploads/photos/da02600fdfa0af62b6d81e8e2cfc1ae2.jpg",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "status": 1,
+      "createdAt": "2024-09-10T16:00:00.000Z",
+      "finishedAt": null,
+      "total": 200000,
+      "deliveryWay": "mail",
+      "items": [
+        {
+          "id": "7",
+          "name": "Угловой диван",
+          "price": 999,
+          "imageUrl": "https://sola-m.ru/wp-content/uploads/2022/10/uglovoj-divan-soft-9-1.jpg",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "status": 4,
+      "createdAt": "2024-09-09T17:00:00.000Z",
+      "finishedAt": "2024-09-10T18:00:00.000Z",
+      "total": 15000,
+      "deliveryWay": "pickup",
+      "items": [
+        {
+          "id": "3",
+          "name": "Плащ невидимка",
+          "price": 10000000,
+          "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh7E90YzE6b9cSP9gHca8MlQNr58n6nnIB4w&s",
+          "count": 1
+        },
+        {
+          "id": "2",
+          "name": "Ведро снега",
+          "description": "Последняя возможность купить по выгодной цене!",
+          "price": 3000,
+          "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmFX6Z49YvURx-_0bB-1H7NytEK-1L5qbelg&s",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "status": 3,
+      "createdAt": "2024-09-11T10:00:00.000Z",
+      "finishedAt": "2024-09-11T12:00:00.000Z",
+      "total": 50000,
+      "deliveryWay": "courier",
       "items": [
         {
           "id": "8",
           "name": "Новый айфон",
           "price": 100000,
-          "createdAt": "2024-08-12T12:16:55.351Z",
-          "views": 200000,
-          "likes": 302,
           "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-m4E1Un2p2f_XE17nFW0mxQgPz3ZM19R9Ug&s",
-          "count": 3
-        },
-        {
-          "id": "6",
-          "name": "Картонная коробка",
-          "description": "Почная.",
-          "price": 7000,
-          "createdAt": "2024-04-12T20:16:55.351Z",
-          "views": 1,
-          "likes": 0,
-          "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf6eacrKlGIo6ZiebEljUtWfy0B072Lt9j8w&s",
           "count": 2
         }
       ]
     },
     {
-      "id": "2",
-      "status": 4,
-      "createdAt": "2024-08-12T20:20:55.351Z",
-      "finishedAt": "2024-08-12T20:25:55.351Z",
-      "total": 33000,
+      "id": "13",
+      "status": 2,
+      "createdAt": "2024-09-11T11:00:00.000Z",
+      "finishedAt": null,
+      "total": 1000,
+      "deliveryWay": "mail",
+      "items": [
+        {
+          "id": "6",
+          "name": "Картонная коробка",
+          "description": "Прочная.",
+          "price": 7000,
+          "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf6eacrKlGIo6ZiebEljUtWfy0B072Lt9j8w&s",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "status": 1,
+      "createdAt": "2024-09-11T12:00:00.000Z",
+      "finishedAt": null,
+      "total": 3000,
       "deliveryWay": "sdek",
+      "items": [
+        {
+          "id": "4",
+          "name": "Ковер",
+          "description": "Стильный модный, как у бабушки в деревне :)))",
+          "price": 5000,
+          "imageUrl": "https://panna.ru/images/4/6/d100517502114l.jpg",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "status": 3,
+      "createdAt": "2024-09-11T13:00:00.000Z",
+      "finishedAt": "2024-09-11T14:00:00.000Z",
+      "total": 2000,
+      "deliveryWay": "pickup",
+      "items": [
+        {
+          "id": "1",
+          "name": "Стул старинный",
+          "description": "Очень красивый",
+          "price": 2000,
+          "imageUrl": "https://kontora-k.ru/s_img/23609.jpg",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "status": 4,
+      "createdAt": "2024-09-11T14:00:00.000Z",
+      "finishedAt": "2024-09-11T15:00:00.000Z",
+      "total": 6300,
+      "deliveryWay": "courier",
       "items": [
         {
           "id": "2",
           "name": "Ведро снега",
           "description": "Последняя возможность купить по выгодной цене!",
           "price": 3000,
-          "createdAt": "2023-08-12T20:16:55.351Z",
-          "views": 77832,
-          "likes": 45666,
           "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmFX6Z49YvURx-_0bB-1H7NytEK-1L5qbelg&s",
-          "count": 10
+          "count": 2
         },
         {
           "id": "5",
           "name": "Носки",
           "price": 6000,
-          "createdAt": "2024-06-12T20:16:55.351Z",
-          "views": 0,
-          "likes": 0,
-          "imageUrl": "https://nosmag2.ru/uploads/photos/da02600fdfa0af62b6d81e8e2cfc1ae2.jpg"
+          "imageUrl": "https://nosmag2.ru/uploads/photos/da02600fdfa0af62b6d81e8e2cfc1ae2.jpg",
+          "count": 1
         }
       ]
     }

@@ -1,0 +1,35 @@
+.advertisement-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.advertisement-card-img {
+  height: 180px;
+  object-fit: cover;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.advertisement-card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.advertisement-card-title {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.advertisement-card-price {
+  margin-bottom: 0.5rem;
+}
+
+.advertisement-card-stats {
+  font-size: 0.9rem;
+}

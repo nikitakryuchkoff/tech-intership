@@ -3,143 +3,152 @@ import modifySortOption from '../../utils/filtredArray';
 
 interface IAdvertisementsResponse {
   data: Advertisment[];
-  itemsCount: number | 0;
+  itemsCount: number;
 }
 
 class AdvertismentsService {
+  private baseUrl: string = import.meta.env.VITE_BASE_RUL;
+
+  private async fetchFromApi<T>(
+    endpoint: string,
+    method: 'GET' | 'POST' | 'PATCH' | 'DELETE' = 'GET',
+    body?: object,
+    signal?: AbortSignal,
+  ): Promise<{ data: T; totalCount: number | null }> {
+    try {
+      const response = await fetch(`${this.baseUrl}${endpoint}`, {
+        method,
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8',
+        },
+        body: body ? JSON.stringify(body) : undefined,
+        signal,
+      });
+
+      if (!response.ok) {
+        throw new Error(`Network response was not ok: ${response.statusText}`);
+      }
+
+      const totalCount = Number(response.headers.get('X-Total-Count'));
+      const data = await response.json();
+
+      return { data, totalCount };
+    } catch (error) {
+      console.log('Fetch aborted');
+
+      return { data: [] as T, totalCount: null };
+    }
+  }
+
   public async getAllAdvertisements(
     page: number = 1,
-    limit: number = 10,
+    limit: string = '10',
     sortType: string,
     sortOrder: string,
+    signal?: AbortSignal,
   ): Promise<IAdvertisementsResponse> {
-    try {
-      const sortOption = modifySortOption(sortType, sortOrder);
+    const sortOption = modifySortOption(sortType, sortOrder);
 
-      let query = `${import.meta.env.VITE_BASE_RUL}advertisements?_page=${page}&_limit=${limit}`;
+    let query = `advertisements?_page=${page}&_limit=${limit}`;
 
-      if (sortOption.status) {
-        query += `&${sortOption.status}`;
-      }
-
-      if (sortOption.name && sortOption.order) {
-        query += `&${sortOption.name}&${sortOption.order}`;
-      }
-      const response = await fetch(query, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json;charset=utf-8',
-        },
-      });
-
-      const data: Advertisment[] = await response.json();
-      const itemsCount = Number(response.headers.get('X-Total-Count'));
-
-      return {
-        data,
-        itemsCount,
-      };
-    } catch (error) {
-      throw new Error(`Fetching error ${error}`);
+    if (sortOption.status) {
+      query += `&${sortOption.status}`;
     }
+
+    if (sortOption.name && sortOption.order) {
+      query += `&${sortOption.name}&${sortOption.order}`;
+    }
+
+    const { data, totalCount } = await this.fetchFromApi<Advertisment[]>(
+      query,
+      'GET',
+      undefined,
+      signal,
+    );
+
+    if (totalCount === null) {
+      throw new Error('Total count is missing in the response headers.');
+    }
+
+    return {
+      data,
+      itemsCount: totalCount,
+    };
   }
+
   public async createAdvertisement(
     body: Omit<Advertisment, 'id'>,
+    signal?: AbortSignal,
   ): Promise<Advertisment> {
-    try {
-      const response = await fetch(
-        `${import.meta.env.VITE_BASE_RUL}advertisements`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json;charset=utf-8',
-          },
-          body: JSON.stringify(body),
-        },
-      );
-
-      return response.json();
-    } catch (error) {
-      throw new Error(`Fetching error ${error}`);
-    }
+    return this.fetchFromApi<Advertisment>(
+      'advertisements',
+      'POST',
+      body,
+      signal,
+    ).then((response) => response.data);
   }
 
-  public async getAdvertisementById(id: number) {
-    try {
-      const response = await fetch(
-        `${import.meta.env.VITE_BASE_RUL}advertisements?id=${id}`,
-        {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json;charset=utf-8',
-          },
-        },
-      );
+  public async getAdvertisementById(
+    id: string,
+    signal?: AbortSignal,
+  ): Promise<Advertisment> {
+    const { data } = await this.fetchFromApi<Advertisment[]>(
+      `advertisements?id=${id}`,
+      'GET',
+      undefined,
+      signal,
+    );
 
-      return response.json();
-    } catch (error) {
-      throw new Error(`Fetching error ${error}`);
+    if (data.length > 0) {
+      return data[0];
     }
+
+    throw new Error('Advertisement not found');
   }
-  public async deleteAdvertisement(id: string): Promise<void> {
-    try {
-      await fetch(`${import.meta.env.VITE_BASE_RUL}advertisements/${id}`, {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json;charset=utf-8',
-        },
-      });
-    } catch (error) {
-      throw new Error(`Fetching error ${error}`);
-    }
+
+  public async deleteAdvertisement(
+    id: string,
+    signal?: AbortSignal,
+  ): Promise<void> {
+    await this.fetchFromApi<void>(
+      `advertisements/${id}`,
+      'DELETE',
+      undefined,
+      signal,
+    );
   }
+
   public async updateAdvertisement(
     body: Record<string, FormDataEntryValue>,
-    id: number,
+    id: string,
+    signal?: AbortSignal,
   ): Promise<Advertisment> {
-    try {
-      const response = await fetch(
-        `${import.meta.env.VITE_BASE_RUL}advertisements/${id}`,
-        {
-          method: 'PATCH',
-          headers: {
-            'Content-Type': 'application/json;charset=utf-8',
-          },
-          body: JSON.stringify(body),
-        },
-      );
-      return response.json();
-    } catch (error) {
-      throw new Error(`Fetching error ${error}`);
-    }
+    return this.fetchFromApi<Advertisment>(
+      `advertisements/${id}`,
+      'PATCH',
+      body,
+      signal,
+    ).then((response) => response.data);
   }
 
   public async searchByTitle(
     searchQuery: string,
     page: number,
-    limit: number,
+    limit: string,
+    signal?: AbortSignal,
   ): Promise<IAdvertisementsResponse> {
-    try {
-      const response = await fetch(
-        `${import.meta.env.VITE_BASE_RUL}advertisements?_page=${page}&_limit=${limit}&title_like=${searchQuery}`,
-        {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json;charset=utf-8',
-          },
-        },
-      );
-      const data: Advertisment[] = await response.json();
+    const query = `advertisements?_page=${page}&_limit=${limit}&name_like=${searchQuery}`;
+    const { data, totalCount } = await this.fetchFromApi<Advertisment[]>(
+      query,
+      'GET',
+      undefined,
+      signal,
+    );
 
-      const itemsCount = Number(response.headers.get('X-Total-Count'));
-
-      return {
-        data,
-        itemsCount,
-      };
-    } catch (error) {
-      throw new Error(`Fetching error ${error}`);
-    }
+    return {
+      data,
+      itemsCount: totalCount!,
+    };
   }
 }
 

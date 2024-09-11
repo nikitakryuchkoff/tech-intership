@@ -1,9 +1,9 @@
 import React from 'react';
-import { Modal, Button, Form } from 'react-bootstrap';
+import { Modal, Button, Form, Container } from 'react-bootstrap';
 
 interface ModalAdvertisementProps {
   show: boolean;
-  closeModal: (flag: boolean) => void;
+  closeModal: React.Dispatch<React.SetStateAction<boolean>>;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
@@ -24,7 +24,7 @@ function ModalAdvertisement({
             <Form.Control
               type="text"
               placeholder="Введите название"
-              name="title"
+              name="name"
             />
           </Form.Group>
 
@@ -33,7 +33,7 @@ function ModalAdvertisement({
             <Form.Control
               type="text"
               placeholder="Введите ссылку на картинку"
-              name="image"
+              name="imageUrl"
             />
           </Form.Group>
 
@@ -56,7 +56,7 @@ function ModalAdvertisement({
             />
           </Form.Group>
 
-          <div className="d-flex justify-content-end mt-4">
+          <Container className="d-flex justify-content-end mt-4">
             <Button
               variant="secondary"
               className="me-2"
@@ -67,7 +67,7 @@ function ModalAdvertisement({
             <Button variant="primary" type="submit">
               Добавить объявление
             </Button>
-          </div>
+          </Container>
         </Form>
       </Modal.Body>
     </Modal>

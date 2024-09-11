@@ -82,12 +82,47 @@ class OrdersService {
         headers: {
           'Content-Type': 'application/json;charset=utf-8',
         },
-        body: JSON.stringify({ status: 'Завершен' }),
+        body: JSON.stringify({ status: 4, finishedAt: new Date() }),
       });
 
       return id;
     } catch (error) {
       throw new Error(`Fetching error ${error}`);
+    }
+  }
+
+  public async fetchOrdersByAdvertisementId(
+    advertisementId: string,
+    page: number = 1,
+    limit: number = 10,
+  ): Promise<IOrdersResponse> {
+    try {
+      const query = `${import.meta.env.VITE_BASE_RUL}orders?_page=${page}&_limit=${limit}`;
+
+      const response = await fetch(query, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8',
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`Failed to fetch orders: ${response.statusText}`);
+      }
+
+      const orders: Order[] = await response.json();
+      const itemsCount = Number(response.headers.get('X-Total-Count'));
+
+      const filteredOrders = orders.filter((order) =>
+        order.items.some((item) => item.id === advertisementId),
+      );
+
+      return {
+        data: filteredOrders,
+        itemsCount,
+      };
+    } catch (error) {
+      throw new Error(`Fetching error: ${error}`);
     }
   }
 }

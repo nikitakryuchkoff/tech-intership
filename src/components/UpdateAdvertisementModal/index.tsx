@@ -6,9 +6,9 @@ import { Advertisment } from '../../types';
 
 interface UpdateAdvertisementModalProps {
   show: boolean;
-  closeModal: (flag: boolean) => void;
+  closeModal: React.Dispatch<React.SetStateAction<boolean>>;
   setCurrentAdvertisement: (advertisement: Advertisment | undefined) => void;
-  id: number;
+  id: string;
 }
 
 function UpdateAdvertisementModal({

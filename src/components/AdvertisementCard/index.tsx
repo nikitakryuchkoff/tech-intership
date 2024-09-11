@@ -1,6 +1,7 @@
-import { Card, Button, Nav } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import formatCurrency from '../../utils/formatCurrent';
+import './AdvertisementCard.css';
 
 interface AdvertisementCardProps {
   image: string | undefined;
@@ -20,49 +21,34 @@ const AdvertisementCard = ({
   cardId,
 }: AdvertisementCardProps): JSX.Element => {
   return (
-    <Nav.Link as={NavLink} to={`/${cardId}`} className="p-0">
-      <Card
-        style={{
-          width: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-        }}
-        className="mb-3 shadow-sm"
-      >
+    <Card className="mb-3 advertisement-card shadow-sm">
+      <NavLink to={`/advertisements/${cardId}`} className="p-0" target="_blank">
         <Card.Img
           variant="top"
           src={image}
           alt={title}
-          style={{
-            height: '180px',
-            objectFit: 'cover',
-            borderTopLeftRadius: '5px',
-            borderTopRightRadius: '5px',
-          }}
+          className="advertisement-card-img"
         />
-        <Card.Body className="d-flex flex-column justify-content-between p-3">
-          <div>
-            <Card.Title
-              className="mb-2 text-truncate"
-              style={{ fontSize: '1.1rem' }}
-            >
-              {title}
-            </Card.Title>
-            <Card.Text className="mb-2">
-              <span className="text-muted">Стоимость: </span>
-              {formatCurrency(price)}
-            </Card.Text>
-            <Card.Text className="text-muted" style={{ fontSize: '0.9rem' }}>
-              <i className="bi bi-eye"></i> {views} &nbsp; | &nbsp;{' '}
-              <i className="bi bi-heart"></i> {likes}
-            </Card.Text>
-          </div>
-          <Button variant="outline-primary" size="sm" className="mt-2">
+      </NavLink>
+      <Card.Body className="advertisement-card-body">
+        <NavLink to={`/${cardId}`} className="text-decoration-none">
+          <Card.Title className="advertisement-card-title">{title}</Card.Title>
+        </NavLink>
+        <Card.Text className="advertisement-card-price">
+          <span className="text-muted">Стоимость: </span>
+          {formatCurrency(price)}
+        </Card.Text>
+        <Card.Text className="advertisement-card-stats text-muted">
+          <i className="bi bi-eye"></i> {views} &nbsp; | &nbsp;{' '}
+          <i className="bi bi-heart"></i> {likes}
+        </Card.Text>
+        <NavLink to={`/orders/${cardId}`} target="_blank">
+          <Button variant="outline-primary" className="mt-3 w-100">
             Заказы
           </Button>
-        </Card.Body>
-      </Card>
-    </Nav.Link>
+        </NavLink>
+      </Card.Body>
+    </Card>
   );
 };
 

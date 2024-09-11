@@ -13,7 +13,7 @@ const SelectCardCount = ({
 }: SelectCardCountProps): JSX.Element => {
   return (
     <Form.Group controlId="selectCardCount">
-      <Form.Label>{label}</Form.Label>
+      <Form.Label className="fw-bold">{label}</Form.Label>
       <Form.Control as="select" onChange={(e) => setter(e.currentTarget.value)}>
         {options.map((option) => (
           <option value={option} key={option}>

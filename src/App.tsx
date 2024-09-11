@@ -1,26 +1,8 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { Layout } from './components';
-import { AdvertisementPage, AdvertisementsPage, OrdersPage } from './pages';
+import { RouterProvider } from 'react-router-dom';
+import useAppRoutes from './hooks/useAppRoutes';
 
 export default function App() {
-  const router = createBrowserRouter([
-    {
-      element: <Layout />,
-      children: [
-        {
-          path: '/',
-          element: <AdvertisementsPage />,
-        },
-        {
-          path: '/:id',
-          element: <AdvertisementPage />,
-        },
-        {
-          path: '/orders',
-          element: <OrdersPage />,
-        },
-      ],
-    },
-  ]);
+  const router = useAppRoutes();
+
   return <RouterProvider router={router} />;
 }

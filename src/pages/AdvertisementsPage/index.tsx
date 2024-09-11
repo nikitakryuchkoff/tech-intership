@@ -4,10 +4,11 @@ import {
   AdvertisementsNav,
   Pagination,
   CreateAdvertisementModal,
+  SkeletonAdvertisementList,
 } from '../../components';
-import { AdvertismentsService } from '../../services';
 import useDebounce from '../../hooks/useDebounce';
 import { Advertisment } from '../../types';
+import fetchAdvertisements from '../../utils/fetchSearchAdvertisement';
 
 export default function AdvertisementsPage(): JSX.Element {
   const [advertisements, setAdvertisements] = useState<Advertisment[]>([]);
@@ -21,39 +22,29 @@ export default function AdvertisementsPage(): JSX.Element {
   const [sortOrder, setSortOrder] = useState<string>('По возрастанию');
   const [sortType, setSortType] = useState<string>('Цена');
   const [modal, setModal] = useState<boolean>(false);
-
+  const [loading, setLoading] = useState(true);
   const totalCount = useRef<number>(1);
   const totalPages = Math.ceil(totalCount.current / +limit);
 
-  const fetchAdvertisements = async () => {
-    const { data, itemsCount } =
-      await AdvertismentsService.getAllAdvertisements(
-        page,
-        +limit,
-        sortType,
-        sortOrder,
-      );
-
-    setAdvertisements(data);
-    totalCount.current = itemsCount;
-  };
-
-  const searchAdvertisements = async () => {
-    const { data, itemsCount } = await AdvertismentsService.searchByTitle(
-      debouncedQuery,
-      page,
-      +limit,
-    );
-    setCurrentAdvertisements(data);
-    totalCount.current = itemsCount;
-  };
-
   useEffect(() => {
-    if (debouncedQuery) {
-      searchAdvertisements();
-    } else {
-      fetchAdvertisements();
-    }
+    const controller = new AbortController();
+    const { signal } = controller;
+
+    fetchAdvertisements({
+      debouncedQuery,
+      limit,
+      page,
+      sortOrder,
+      sortType,
+      signal,
+    }).then(({ data, itemsCount }) => {
+      setAdvertisements(data);
+      totalCount.current = itemsCount;
+      setLoading(false);
+    });
+    return () => {
+      controller.abort();
+    };
   }, [debouncedQuery, limit, page, sortOrder, sortType]);
 
   useEffect(() => {
@@ -69,7 +60,13 @@ export default function AdvertisementsPage(): JSX.Element {
         setSortOrder={setSortOrder}
         setSortType={setSortType}
       />
-      <AdvertisementsList currentAdvertisements={currentAdvertisements} />
+      {loading ? (
+        <SkeletonAdvertisementList
+          currentAdvertisements={currentAdvertisements}
+        />
+      ) : (
+        <AdvertisementsList currentAdvertisements={currentAdvertisements} />
+      )}
       {totalPages > 1 && (
         <Pagination
           currentPage={page}
