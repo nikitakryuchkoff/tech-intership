@@ -31,7 +31,10 @@ export default function AdvertisementCard({
         />
       </NavLink>
       <Card.Body className="advertisement-card-body">
-        <NavLink to={`/${cardId}`} className="text-decoration-none">
+        <NavLink
+          to={`/advertisements/${cardId}`}
+          className="text-decoration-none"
+        >
           <Card.Title className="advertisement-card-title">{title}</Card.Title>
         </NavLink>
         <Card.Text className="advertisement-card-price">
