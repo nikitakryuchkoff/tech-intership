@@ -16,3 +16,4 @@ export { default as SkeletonAdvertisementList } from './SkeletonAdvertisementLis
 export { default as AdvertisementPageSkeleton } from './AdvertisementPageSkeleton';
 export { default as Toaster } from './Toaster';
 export { default as SkeletonOrderItem } from './SkeletonOrderItem';
+export { default as NotFound } from './NotFound';

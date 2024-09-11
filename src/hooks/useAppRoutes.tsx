@@ -1,11 +1,13 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom';
-import { Layout } from '../components';
+import { createBrowserRouter } from 'react-router-dom';
+import { Layout, NotFound } from '../components';
 import {
   AdvertisementsPage,
   AdvertisementPage,
   OrdersPage,
   OrdersWithAdvertisementsPage,
+  HomePage,
 } from '../pages';
+import { AdvertisementsProvider } from '../context/AdvertisementsContext';
 
 export default function useAppRoutes(): ReturnType<typeof createBrowserRouter> {
   const router = createBrowserRouter([
@@ -13,8 +15,16 @@ export default function useAppRoutes(): ReturnType<typeof createBrowserRouter> {
       element: <Layout />,
       children: [
         {
+          path: '/',
+          element: <HomePage />,
+        },
+        {
           path: '/advertisements',
-          element: <AdvertisementsPage />,
+          element: (
+            <AdvertisementsProvider>
+              <AdvertisementsPage />
+            </AdvertisementsProvider>
+          ),
         },
         {
           path: '/advertisements/:id',
@@ -30,7 +40,7 @@ export default function useAppRoutes(): ReturnType<typeof createBrowserRouter> {
         },
         {
           path: '*',
-          element: <Navigate to={'/advertisements'} />,
+          element: <NotFound />,
         },
       ],
     },

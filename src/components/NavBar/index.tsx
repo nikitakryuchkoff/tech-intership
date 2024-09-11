@@ -21,7 +21,7 @@ function NavBar(): JSX.Element {
           <Nav className="me-auto">
             <Nav.Link
               as={NavLink}
-              to="/"
+              to="/advertisements"
               className="mx-2 text-light custom-link"
             >
               Объявления
