@@ -20,6 +20,10 @@ export default function AdvertisementsPage(): JSX.Element {
     setModal,
     loading,
     totalPages,
+    limit,
+    sortOrder,
+    sortType,
+    setCurrentAdvertisements,
   } = useAdvertisements();
 
   return (
@@ -30,6 +34,9 @@ export default function AdvertisementsPage(): JSX.Element {
         setter={setLimit}
         setSortOrder={setSortOrder}
         setSortType={setSortType}
+        limit={limit}
+        sortOrder={sortOrder}
+        sortType={sortType}
       />
       {loading ? (
         <SkeletonAdvertisementList
@@ -48,7 +55,7 @@ export default function AdvertisementsPage(): JSX.Element {
       <CreateAdvertisementModal
         show={modal}
         closeModal={() => setModal(false)}
-        setCurrentAdvertisements={() => {}}
+        setCurrentAdvertisements={setCurrentAdvertisements}
       />
     </>
   );

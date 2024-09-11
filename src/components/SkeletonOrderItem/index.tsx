@@ -1,6 +1,6 @@
 import { Card, Placeholder, Button } from 'react-bootstrap';
 
-function SkeletonOrderItem() {
+export default function SkeletonOrderItem(): JSX.Element {
   return (
     <Card className="my-3 shadow-sm">
       <Card.Header>
@@ -47,5 +47,3 @@ function SkeletonOrderItem() {
     </Card>
   );
 }
-
-export default SkeletonOrderItem;

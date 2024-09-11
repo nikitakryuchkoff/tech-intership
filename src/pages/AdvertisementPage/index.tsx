@@ -1,53 +1,34 @@
-import { Row, Col, Card, Button } from 'react-bootstrap';
-import { useNavigate, useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { AdvertismentsService } from '../../services';
+import { Row, Col, Card, Button, Badge, Alert } from 'react-bootstrap';
 import UpdateAdvertisementModal from '../../components/UpdateAdvertisementModal';
 import AdvertisementPageSkeleton from '../../components/AdvertisementPageSkeleton';
-import { Advertisment } from '../../types';
+import { useAdvertisement } from '../../context/AdvertisementContext';
+import { useState } from 'react';
+import formatDate from '../../utils/formatDate';
 import './AdvertisementPage.css';
 
-function AdvertisementPage(): JSX.Element {
-  const { id } = useParams<{ id: string }>();
-  const [loading, setLoading] = useState<boolean>(true);
-  const navigate = useNavigate();
-  const [advertisement, setAdvertisement] = useState<
-    Advertisment | undefined
-  >();
-  const [modal, setModal] = useState<boolean>(false);
-  const [showMore, setShowMore] = useState<boolean>(false);
+export default function AdvertisementPage(): JSX.Element {
+  const {
+    advertisement,
+    loading,
+    modal,
+    showMore,
+    setModal,
+    setShowMore,
+    deleteAdvertisement,
+    setAdvertisement,
+  } = useAdvertisement();
 
-  useEffect(() => {
-    const controller = new AbortController();
-    const { signal } = controller;
+  const [showAlert, setShowAlert] = useState(false);
 
-    if (id) {
-      AdvertismentsService.getAdvertisementById(id, signal)
-        .then((data) => {
-          setAdvertisement(data);
-          setLoading(false);
-        })
-        .catch((error) => {
-          if (error.name !== 'AbortError') {
-            setLoading(false);
-          }
-        });
+  const handleToggleText = () => setShowMore((prev) => !prev);
+  const description = advertisement?.description || '';
 
-      return () => {
-        controller.abort();
-      };
-    }
-  }, [id]);
-
-  const deleteHandler = async (id: string) => {
-    if (id) {
-      await AdvertismentsService.deleteAdvertisement(id);
-      navigate('/');
+  const handleDelete = () => {
+    if (advertisement?.id) {
+      deleteAdvertisement(advertisement.id);
+      setShowAlert(true);
     }
   };
-  const handleToggleText = () => setShowMore((prev) => !prev);
-
-  const description = advertisement?.description || '';
 
   if (loading) return <AdvertisementPageSkeleton />;
 
@@ -55,22 +36,35 @@ function AdvertisementPage(): JSX.Element {
     <>
       {advertisement ? (
         <>
+          {showAlert && (
+            <Alert
+              variant="success"
+              onClose={() => setShowAlert(false)}
+              dismissible
+              className="mt-3"
+            >
+              Объявление успешно удалено!
+            </Alert>
+          )}
           <Row className="mt-4">
-            <Col md={6}>
-              <Card className="shadow-sm">
+            <Col xs={12} md={6}>
+              <Card className="shadow-lg">
                 <Card.Img
-                  variant="top"
                   src={advertisement.imageUrl}
                   alt={advertisement.name}
                   className="card-img"
+                  style={{
+                    transition: 'transform 0.3s',
+                    transform: showMore ? 'scale(1.05)' : 'scale(1)',
+                  }}
                 />
               </Card>
             </Col>
-            <Col md={6}>
-              <Card className="shadow-sm p-4">
+            <Col xs={12} md={6}>
+              <Card className="shadow-lg p-4">
                 <Card.Body>
                   <Card.Title className="mb-4 card-title">
-                    {advertisement.name}
+                    {advertisement.name} <Badge bg="info">Новинка</Badge>
                   </Card.Title>
                   <Card.Text className="card-text-price">
                     <strong>Стоимость:</strong> {advertisement.price} руб.
@@ -80,6 +74,10 @@ function AdvertisementPage(): JSX.Element {
                   </Card.Text>
                   <Card.Text>
                     <strong>Лайки:</strong> {advertisement.likes}
+                  </Card.Text>
+                  <Card.Text>
+                    <strong>Дата публикации:</strong>{' '}
+                    {formatDate(advertisement.createdAt)}
                   </Card.Text>
                   <div className="mb-3">
                     <strong>Описание:</strong>
@@ -101,20 +99,19 @@ function AdvertisementPage(): JSX.Element {
                   </div>
                   <div className="button-group">
                     <Button
-                      variant="danger"
-                      size="lg"
-                      onClick={() =>
-                        advertisement.id && deleteHandler(advertisement.id)
-                      }
-                    >
-                      Удалить объявление
-                    </Button>
-                    <Button
                       variant="warning"
                       size="lg"
                       onClick={() => setModal(true)}
                     >
                       Редактировать
+                    </Button>
+                    <Button
+                      variant="danger"
+                      size="lg"
+                      onClick={handleDelete}
+                      className="me-3"
+                    >
+                      Удалить объявление
                     </Button>
                   </div>
                 </Card.Body>
@@ -124,15 +121,17 @@ function AdvertisementPage(): JSX.Element {
           <UpdateAdvertisementModal
             show={modal}
             closeModal={() => setModal(false)}
-            setCurrentAdvertisement={setAdvertisement}
-            id={id || ''}
+            setAdvertisement={setAdvertisement}
+            id={advertisement.id}
+            content={advertisement}
           />
         </>
       ) : (
-        <div>Объявление не найдено</div>
+        <div className="text-center mt-5">
+          <h3>Объявление не найдено</h3>
+          <p>Проверьте, существует ли оно или удалено</p>
+        </div>
       )}
     </>
   );
 }
-
-export default AdvertisementPage;

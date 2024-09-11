@@ -1,17 +1,18 @@
 import { useState } from 'react';
-import { Card, Button, ListGroup, Nav } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { Card, Button } from 'react-bootstrap';
 import { OrdersService } from '../../services';
 import formatCurrency from '../../utils/formatCurrent';
 import { Order } from '../../types';
 import getOrderStatus from '../../utils/getOrderStatus';
+import { OrderSubItem } from '..';
+import formatDate from '../../utils/formatDate';
 
 interface OrderItemProps {
   order: Order;
-  setCurrentOrders: React.Dispatch<React.SetStateAction<Order[]>>;
+  setOrders: React.Dispatch<React.SetStateAction<Order[]>>;
 }
 
-function OrderItem({ order, setCurrentOrders }: OrderItemProps) {
+export default function OrderItem({ order, setOrders }: OrderItemProps) {
   const [showProducts, setShowProducts] = useState<boolean>(false);
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
 
@@ -23,7 +24,9 @@ function OrderItem({ order, setCurrentOrders }: OrderItemProps) {
     setIsProcessing(true);
     try {
       await OrdersService.changeOrderStatus(id);
-      setCurrentOrders((prevOrders) =>
+      console.log(id);
+
+      setOrders((prevOrders) =>
         prevOrders.map((orderItem) =>
           orderItem.id === id
             ? { ...orderItem, status: 4, finishedAt: new Date().toISOString() }
@@ -48,31 +51,19 @@ function OrderItem({ order, setCurrentOrders }: OrderItemProps) {
           <strong>Стоимость заказа:</strong> {formatCurrency(order.total)}
         </Card.Text>
         <Card.Text>
-          <strong>Дата создания заказа:</strong> {order.createdAt}
+          <strong>Дата создания заказа:</strong> {formatDate(order.createdAt)}
         </Card.Text>
         {order.finishedAt && (
           <Card.Text>
-            <strong>Дата получения заказа:</strong> {order.finishedAt}
+            <strong>Дата получения заказа:</strong>
+            {formatDate(order.finishedAt)}
           </Card.Text>
         )}
         <Card.Text>
           <strong>Статус:</strong> {getOrderStatus(order.status, true)}
         </Card.Text>
 
-        {showProducts && (
-          <ListGroup className="mt-3">
-            {order.items.map((item) => (
-              <Nav.Link
-                as={NavLink}
-                to={`/advertisements/${item.id}`}
-                key={item.id}
-                target="_blank"
-              >
-                <ListGroup.Item>{item.name}</ListGroup.Item>
-              </Nav.Link>
-            ))}
-          </ListGroup>
-        )}
+        {showProducts && <OrderSubItem order={order} />}
 
         <div className="d-flex align-items-center mt-3">
           <Button variant="primary" onClick={toggleProductsVisibility}>
@@ -94,5 +85,3 @@ function OrderItem({ order, setCurrentOrders }: OrderItemProps) {
     </Card>
   );
 }
-
-export default OrderItem;

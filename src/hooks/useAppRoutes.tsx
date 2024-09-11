@@ -8,6 +8,9 @@ import {
   HomePage,
 } from '../pages';
 import { AdvertisementsProvider } from '../context/AdvertisementsContext';
+import { AdvertisementProvider } from '../context/AdvertisementContext';
+import { OrdersProvider } from '../context/OrdersContext';
+import { OrdersWithAdvertisementsProvider } from '../context/OrdersWithAdvertisementsContext';
 
 export default function useAppRoutes(): ReturnType<typeof createBrowserRouter> {
   const router = createBrowserRouter([
@@ -28,15 +31,27 @@ export default function useAppRoutes(): ReturnType<typeof createBrowserRouter> {
         },
         {
           path: '/advertisements/:id',
-          element: <AdvertisementPage />,
+          element: (
+            <AdvertisementProvider>
+              <AdvertisementPage />
+            </AdvertisementProvider>
+          ),
         },
         {
           path: '/orders',
-          element: <OrdersPage />,
+          element: (
+            <OrdersProvider>
+              <OrdersPage />
+            </OrdersProvider>
+          ),
         },
         {
           path: '/orders/:id',
-          element: <OrdersWithAdvertisementsPage />,
+          element: (
+            <OrdersWithAdvertisementsProvider>
+              <OrdersWithAdvertisementsPage />
+            </OrdersWithAdvertisementsProvider>
+          ),
         },
         {
           path: '*',

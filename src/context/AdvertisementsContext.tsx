@@ -16,19 +16,20 @@ interface AdvertisementsContextProps {
   advertisements: Advertisment[];
   currentAdvertisements: Advertisment[];
   searchQuery: string;
-  setSearchQuery: Dispatch<SetStateAction<string>>;
   limit: string;
-  setLimit: Dispatch<SetStateAction<string>>;
   page: number;
-  setPage: Dispatch<SetStateAction<number>>;
   sortOrder: string;
-  setSortOrder: Dispatch<SetStateAction<string>>;
   sortType: string;
-  setSortType: Dispatch<SetStateAction<string>>;
   modal: boolean;
-  setModal: Dispatch<SetStateAction<boolean>>;
   loading: boolean;
   totalPages: number;
+  setSearchQuery: Dispatch<SetStateAction<string>>;
+  setLimit: Dispatch<SetStateAction<string>>;
+  setPage: Dispatch<SetStateAction<number>>;
+  setSortOrder: Dispatch<SetStateAction<string>>;
+  setSortType: Dispatch<SetStateAction<string>>;
+  setModal: Dispatch<SetStateAction<boolean>>;
+  setCurrentAdvertisements: Dispatch<SetStateAction<Advertisment[]>>;
 }
 
 const AdvertisementsContext = createContext<
@@ -40,16 +41,33 @@ export function AdvertisementsProvider({ children }: { children: ReactNode }) {
   const [currentAdvertisements, setCurrentAdvertisements] = useState<
     Advertisment[]
   >([]);
+
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const debouncedQuery = useDebounce<string>(searchQuery, 333);
-  const [limit, setLimit] = useState<string>('10');
-  const [page, setPage] = useState<number>(1);
-  const [sortOrder, setSortOrder] = useState<string>('По возрастанию');
-  const [sortType, setSortType] = useState<string>('Цена');
+  const [limit, setLimit] = useState<string>(
+    localStorage.getItem('limit') || '10',
+  );
+  const [page, setPage] = useState<number>(
+    Number(localStorage.getItem('page')) || 1,
+  );
+  const [sortOrder, setSortOrder] = useState<string>(
+    localStorage.getItem('sortOrder') || 'По возрастанию',
+  );
+  const [sortType, setSortType] = useState<string>(
+    localStorage.getItem('sortType') || 'Цена',
+  );
+
   const [modal, setModal] = useState<boolean>(false);
   const [loading, setLoading] = useState(true);
   const totalCount = useRef<number>(1);
   const totalPages = Math.ceil(totalCount.current / +limit);
+  const debouncedQuery = useDebounce<string>(searchQuery, 333);
+
+  useEffect(() => {
+    localStorage.setItem('limit', limit);
+    localStorage.setItem('page', page.toString());
+    localStorage.setItem('sortOrder', sortOrder);
+    localStorage.setItem('sortType', sortType);
+  }, [searchQuery, limit, page, sortOrder, sortType]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -83,6 +101,7 @@ export function AdvertisementsProvider({ children }: { children: ReactNode }) {
       value={{
         advertisements,
         currentAdvertisements,
+        setCurrentAdvertisements,
         searchQuery,
         setSearchQuery,
         limit,

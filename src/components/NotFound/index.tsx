@@ -1,9 +1,9 @@
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-function NotFound(): JSX.Element {
+export default function NotFound(): JSX.Element {
   return (
-    <Container className="text-center" style={{ marginTop: '100px' }}>
+    <Container className="text-center mt-5">
       <Row>
         <Col>
           <h1>404 - Страница не найдена</h1>
@@ -16,5 +16,3 @@ function NotFound(): JSX.Element {
     </Container>
   );
 }
-
-export default NotFound;

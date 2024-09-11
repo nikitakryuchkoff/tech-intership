@@ -6,13 +6,17 @@ interface AdvertisementsFilterProps {
   setSortType: React.Dispatch<React.SetStateAction<string>>;
   sortTypesArray: string[];
   sortOrderArray: string[];
+  sortType: string;
+  sortOrder: string;
 }
 
-function Filter({
+export default function Filter({
   setSortOrder,
   setSortType,
   sortTypesArray,
   sortOrderArray,
+  sortType,
+  sortOrder,
 }: AdvertisementsFilterProps): JSX.Element {
   const handleSortTypeChange = useCallback(
     (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -35,7 +39,10 @@ function Filter({
           <Form.Group controlId="sortType">
             <Form.Label className="fw-bold">Сортировать по:</Form.Label>
             {sortTypesArray.length > 1 ? (
-              <Form.Select onChange={handleSortTypeChange}>
+              <Form.Select
+                onChange={handleSortTypeChange}
+                defaultValue={sortType}
+              >
                 {sortTypesArray.map((item) => (
                   <option value={item} key={item}>
                     {item}
@@ -56,7 +63,10 @@ function Filter({
           <Form.Group controlId="sortOrder">
             <Form.Label className="fw-bold">Порядок сортировки:</Form.Label>
             {sortOrderArray.length > 1 ? (
-              <Form.Select onChange={handleSortOrderChange}>
+              <Form.Select
+                onChange={handleSortOrderChange}
+                defaultValue={sortOrder}
+              >
                 {sortOrderArray.map((item) => (
                   <option value={item} key={item}>
                     {item}
@@ -77,5 +87,3 @@ function Filter({
     </Form>
   );
 }
-
-export default Filter;

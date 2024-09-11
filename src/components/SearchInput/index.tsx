@@ -4,7 +4,9 @@ interface SearchInputProps {
   setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const SearchInput = ({ setSearchQuery }: SearchInputProps): JSX.Element => {
+export default function SearchInput({
+  setSearchQuery,
+}: SearchInputProps): JSX.Element {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setSearchQuery(e.target.value);
   };
@@ -22,6 +24,4 @@ const SearchInput = ({ setSearchQuery }: SearchInputProps): JSX.Element => {
       </Form.Group>
     </Form>
   );
-};
-
-export default SearchInput;
+}

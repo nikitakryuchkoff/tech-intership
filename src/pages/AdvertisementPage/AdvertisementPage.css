@@ -2,7 +2,6 @@
   border-radius: 10px;
   border: 2px solid #f0f0f0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  height: 400px;
   object-fit: cover;
 }
 
@@ -20,10 +19,63 @@
   font-size: 1rem;
   margin-bottom: 1rem;
 }
-.btn-link {
-  padding: 0 !important;
+.btn-danger {
+  margin-left: 20px;
 }
-.button-group {
-  display: flex;
-  gap: 1rem;
+
+@media (max-width: 1200px) {
+  .btn-danger {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    margin-top: 50px;
+  }
+  .card-title {
+    font-size: 1.5rem;
+  }
+
+  .card-text-price {
+    font-size: 1rem;
+  }
+
+  .card-text-description {
+    font-size: 0.9rem;
+  }
+
+  .card-img {
+    height: auto;
+    max-width: 100%;
+  }
+
+  .btn-danger {
+    margin-left: 20px;
+    margin-top: 0px;
+  }
+}
+
+@media (max-width: 533px) {
+  .card-title {
+    font-size: 1.2rem;
+  }
+
+  .card-text-price {
+    font-size: 0.9rem;
+  }
+
+  .card-text-description {
+    font-size: 0.8rem;
+  }
+
+  .card-img {
+    height: auto;
+    max-width: 100%;
+  }
+  .btn-danger {
+    margin-left: 0px;
+    margin-top: 20px;
+  }
 }

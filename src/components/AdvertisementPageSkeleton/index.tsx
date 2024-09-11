@@ -1,6 +1,6 @@
 import { Row, Col, Card, Placeholder, Button } from 'react-bootstrap';
 
-function AdvertisementPageSkeleton(): JSX.Element {
+export default function AdvertisementPageSkeleton(): JSX.Element {
   return (
     <Row className="mt-4">
       <Col md={6}>
@@ -55,5 +55,3 @@ function AdvertisementPageSkeleton(): JSX.Element {
     </Row>
   );
 }
-
-export default AdvertisementPageSkeleton;

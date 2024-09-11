@@ -1,32 +1,13 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { OrdersService } from '../../services';
 import { OrderItem, SkeletonOrderItem } from '../../components';
-import { Order } from '../../types';
+import { useOrdersWithAdvertisements } from '../../context/OrdersWithAdvertisementsContext';
 import './OrdersWithAdvertisementsPage.css';
 
-export default function OrdersWithAdvertisementsPage() {
-  const [orders, setOrders] = useState<Order[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const { id } = useParams();
-
-  useEffect(() => {
-    if (id) {
-      OrdersService.fetchOrdersByAdvertisementId(id)
-        .then(({ data }) => {
-          setOrders(data);
-          setLoading(false);
-        })
-        .catch((error) => {
-          console.error('Error fetching orders:', error);
-          setLoading(false);
-        });
-    }
-  }, [id]);
+export default function OrdersWithAdvertisementsPage(): JSX.Element {
+  const { orders, loading, setOrders } = useOrdersWithAdvertisements();
 
   return (
     <>
-      <h2 className="page-title mt-4">Заказы, содержащие объявление: №{id}</h2>
+      <h2 className="page-title mt-4">Заказы, содержащие объявление</h2>
       {loading && (
         <>
           <SkeletonOrderItem />
@@ -37,11 +18,7 @@ export default function OrdersWithAdvertisementsPage() {
       {orders.length > 0 ? (
         <div className="orders-list">
           {orders.map((order) => (
-            <OrderItem
-              key={order.id}
-              order={order}
-              setCurrentOrders={setOrders}
-            />
+            <OrderItem key={order.id} order={order} setOrders={setOrders} />
           ))}
         </div>
       ) : (

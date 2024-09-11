@@ -8,7 +8,7 @@ interface ToasterProps {
   delay?: number;
 }
 
-function Toaster({
+export default function Toaster({
   show,
   message,
   onClose,
@@ -34,5 +34,3 @@ function Toaster({
     </ToastContainer>
   );
 }
-
-export default Toaster;

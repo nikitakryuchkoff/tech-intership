@@ -7,15 +7,19 @@ import { Advertisment } from '../../types';
 interface UpdateAdvertisementModalProps {
   show: boolean;
   closeModal: React.Dispatch<React.SetStateAction<boolean>>;
-  setCurrentAdvertisement: (advertisement: Advertisment | undefined) => void;
+  setAdvertisement: React.Dispatch<
+    React.SetStateAction<Advertisment | undefined>
+  >;
   id: string;
+  content: Advertisment;
 }
 
-function UpdateAdvertisementModal({
+export default function UpdateAdvertisementModal({
   show,
   closeModal,
-  setCurrentAdvertisement,
+  setAdvertisement,
   id,
+  content,
 }: UpdateAdvertisementModalProps): JSX.Element {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -32,7 +36,7 @@ function UpdateAdvertisementModal({
       id,
     );
 
-    setCurrentAdvertisement(newItem);
+    setAdvertisement(newItem);
     closeModal(false);
   };
 
@@ -41,8 +45,7 @@ function UpdateAdvertisementModal({
       show={show}
       closeModal={closeModal}
       handleSubmit={handleSubmit}
+      content={content}
     />
   );
 }
-
-export default UpdateAdvertisementModal;

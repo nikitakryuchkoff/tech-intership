@@ -12,14 +12,14 @@ interface AdvertisementCardProps {
   cardId: string;
 }
 
-const AdvertisementCard = ({
+export default function AdvertisementCard({
   image,
   title,
   price,
   views,
   likes,
   cardId,
-}: AdvertisementCardProps): JSX.Element => {
+}: AdvertisementCardProps): JSX.Element {
   return (
     <Card className="mb-3 advertisement-card shadow-sm">
       <NavLink to={`/advertisements/${cardId}`} className="p-0" target="_blank">
@@ -50,6 +50,4 @@ const AdvertisementCard = ({
       </Card.Body>
     </Card>
   );
-};
-
-export default AdvertisementCard;
+}

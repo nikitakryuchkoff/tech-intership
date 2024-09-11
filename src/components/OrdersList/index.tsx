@@ -10,7 +10,7 @@ interface OrdersListProps {
   loading: boolean;
 }
 
-function OrdersList({
+export default memo(function OrdersList({
   orders,
   setCurrentOrders,
   loading,
@@ -27,11 +27,7 @@ function OrdersList({
   return (
     <>
       {orders.map((order) => (
-        <OrderItem
-          order={order}
-          key={order.id}
-          setCurrentOrders={setCurrentOrders}
-        />
+        <OrderItem order={order} key={order.id} setOrders={setCurrentOrders} />
       ))}
       {orders.length === 0 && (
         <Card className="my-3 p-4">
@@ -40,6 +36,4 @@ function OrdersList({
       )}
     </>
   );
-}
-
-export default memo(OrdersList);
+});

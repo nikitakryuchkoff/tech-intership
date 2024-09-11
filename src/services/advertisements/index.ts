@@ -34,7 +34,6 @@ class AdvertismentsService {
 
       return { data, totalCount };
     } catch (error) {
-      console.log('Fetch aborted');
 
       return { data: [] as T, totalCount: null };
     }

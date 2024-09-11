@@ -1,6 +1,6 @@
 import { Card, Placeholder } from 'react-bootstrap';
 
-function SkeletonAdvertisementCard(): JSX.Element {
+export default function SkeletonAdvertisementCard(): JSX.Element {
   return (
     <Card
       style={{
@@ -33,5 +33,3 @@ function SkeletonAdvertisementCard(): JSX.Element {
     </Card>
   );
 }
-
-export default SkeletonAdvertisementCard;

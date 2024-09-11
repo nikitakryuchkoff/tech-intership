@@ -11,11 +11,11 @@ interface CreateAdvertisementModalProps {
   >;
 }
 
-const CreateAdvertisementModal: React.FC<CreateAdvertisementModalProps> = ({
+export default function CreateAdvertisementModal({
   show,
   closeModal,
   setCurrentAdvertisements,
-}): JSX.Element => {
+}: CreateAdvertisementModalProps): JSX.Element {
   const [showToast, setShowToast] = useState(false);
   const handleSubmit = useCallback(
     async (e: React.FormEvent<HTMLFormElement>) => {
@@ -27,8 +27,6 @@ const CreateAdvertisementModal: React.FC<CreateAdvertisementModalProps> = ({
       const price = formData.get('price');
       const imageUrl = formData.get('imageUrl');
       const description = formData.get('description');
-
-      console.log(description);
 
       if (!name || !price || !imageUrl || !description) {
         setShowToast(true);
@@ -47,6 +45,8 @@ const CreateAdvertisementModal: React.FC<CreateAdvertisementModalProps> = ({
 
       try {
         const newItem = await AdvertismentsService.createAdvertisement(data);
+        console.log(newItem);
+
         setCurrentAdvertisements((prev) => [newItem, ...prev]);
         closeModal(false);
       } catch (error) {
@@ -71,6 +71,4 @@ const CreateAdvertisementModal: React.FC<CreateAdvertisementModalProps> = ({
       />
     </>
   );
-};
-
-export default CreateAdvertisementModal;
+}

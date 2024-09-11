@@ -12,7 +12,7 @@
     },
     {
       "id": "2",
-      "name": "Ведро снега",
+      "name": "Ведро снега мощное",
       "description": "Последняя возможность купить по выгодной цене!",
       "price": "4300",
       "createdAt": "2023-08-12T20:16:55.351Z",
@@ -71,8 +71,8 @@
     },
     {
       "id": "8",
-      "name": "Новый айфон",
-      "price": 100000,
+      "name": "Самый новый айфон",
+      "price": "100000",
       "createdAt": "2024-08-12T12:16:55.351Z",
       "views": 200000,
       "likes": 302,
@@ -91,12 +91,13 @@
     },
     {
       "name": "Логотип компании Avito",
-      "price": 1000000,
+      "price": "1000000",
       "imageUrl": "https://play-lh.googleusercontent.com/APz66mWpIbEvm2lO_UPukqQShRkbAFiudlOiLUoe-r4e_nIq7DT6BqCr1LRbqeXuSqr8",
       "likes": 0,
       "views": 0,
       "createdAt": "2024-09-10T19:07:49.469Z",
-      "id": "HaKWjvV"
+      "id": "HaKWjvV",
+      "description": "Логотип компании авито!"
     },
     {
       "name": "Жигули редкие!",
@@ -127,22 +128,22 @@
       "id": "6WwsKjj"
     },
     {
-      "name": "Веселый тостер!",
-      "price": 1232,
-      "imageUrl": "https://kitfort.ru/upload/resize_cache/webp/upload/iblock/5ca/ez7e38vgwi80vmw8ojgy03473pffigj1.webp",
+      "name": "Телеграмм",
+      "price": 10000000000,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Telegram_2019_Logo.svg/640px-Telegram_2019_Logo.svg.png",
       "likes": 0,
       "views": 0,
-      "createdAt": "2024-09-11T08:52:23.635Z",
-      "description": "Самый веселый тостер",
-      "id": "DaQbeux"
+      "createdAt": "2024-09-11T15:17:11.007Z",
+      "description": "Современная социальная сеть",
+      "id": "Oo-NBNS"
     }
   ],
   "orders": [
     {
       "id": "5",
-      "status": 2,
+      "status": 4,
       "createdAt": "2024-09-10T11:30:00.000Z",
-      "finishedAt": null,
+      "finishedAt": "2024-09-11T17:30:51.887Z",
       "total": 1000000,
       "deliveryWay": "courier",
       "items": [
@@ -157,9 +158,9 @@
     },
     {
       "id": "6",
-      "status": 3,
+      "status": 2,
       "createdAt": "2024-09-09T10:00:00.000Z",
-      "finishedAt": "2024-09-10T12:00:00.000Z",
+      "finishedAt": "2024-09-11T15:02:33.221Z",
       "total": 120000000,
       "deliveryWay": "pickup",
       "items": [
@@ -174,9 +175,9 @@
     },
     {
       "id": "7",
-      "status": 1,
+      "status": 2,
       "createdAt": "2024-09-11T08:30:00.000Z",
-      "finishedAt": null,
+      "finishedAt": "2024-09-11T15:04:15.637Z",
       "total": 500,
       "deliveryWay": "mail",
       "items": [
@@ -193,7 +194,7 @@
       "id": "8",
       "status": 2,
       "createdAt": "2024-09-10T14:00:00.000Z",
-      "finishedAt": null,
+      "finishedAt": "2024-09-11T15:04:43.041Z",
       "total": 1232,
       "deliveryWay": "courier",
       "items": [
@@ -209,7 +210,7 @@
     },
     {
       "id": "9",
-      "status": 4,
+      "status": 2,
       "createdAt": "2024-09-09T15:00:00.000Z",
       "finishedAt": "2024-09-11T09:00:00.000Z",
       "total": 5000,

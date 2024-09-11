@@ -6,11 +6,11 @@ interface PaginationComponentProps {
   onPageChange: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const PaginationComponent = ({
+export default function PaginationComponent({
   currentPage,
   totalPages,
   onPageChange,
-}: PaginationComponentProps): JSX.Element => {
+}: PaginationComponentProps): JSX.Element {
   const handlePageChange = (pageNumber: number) => {
     if (pageNumber > 0 && pageNumber <= totalPages) {
       onPageChange(pageNumber);
@@ -79,6 +79,4 @@ const PaginationComponent = ({
       </Pagination>
     </div>
   );
-};
-
-export default PaginationComponent;
+}

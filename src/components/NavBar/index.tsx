@@ -5,7 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { NavLink } from 'react-router-dom';
 import './NavBar.css';
 
-function NavBar(): JSX.Element {
+export default memo(function NavBar(): JSX.Element {
   return (
     <Navbar expand="lg" className="custom-navbar" aria-label="Main navigation">
       <Container>
@@ -38,6 +38,4 @@ function NavBar(): JSX.Element {
       </Container>
     </Navbar>
   );
-}
-
-export default memo(NavBar);
+});

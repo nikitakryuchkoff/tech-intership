@@ -17,3 +17,4 @@ export { default as AdvertisementPageSkeleton } from './AdvertisementPageSkeleto
 export { default as Toaster } from './Toaster';
 export { default as SkeletonOrderItem } from './SkeletonOrderItem';
 export { default as NotFound } from './NotFound';
+export { default as OrderSubItem } from './OrderSubItem';

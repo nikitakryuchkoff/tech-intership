@@ -7,6 +7,9 @@ interface AdvertisementsNavProps {
   setSortOrder: React.Dispatch<React.SetStateAction<string>>;
   setSortType: React.Dispatch<React.SetStateAction<string>>;
   openModal: React.Dispatch<React.SetStateAction<boolean>>;
+  limit: string;
+  sortType: string;
+  sortOrder: string;
 }
 
 export default function AdvertisementsNav({
@@ -15,6 +18,9 @@ export default function AdvertisementsNav({
   setSortOrder,
   setSortType,
   openModal,
+  limit,
+  sortType,
+  sortOrder,
 }: AdvertisementsNavProps): JSX.Element {
   return (
     <>
@@ -27,10 +33,13 @@ export default function AdvertisementsNav({
             setter={setter}
             options={['10', '20', '30']}
             label="Показывать"
+            value={limit}
           />
         </Col>
         <Col>
           <Filter
+            sortOrder={sortOrder}
+            sortType={sortType}
             setSortOrder={setSortOrder}
             setSortType={setSortType}
             sortTypesArray={['Цена', 'Лайки', 'Просмотры']}
