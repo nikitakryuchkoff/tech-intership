@@ -1,50 +1,33 @@
-# React + TypeScript + Vite
+### "Доска заказов и объявлений" Avito 2024
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Веб-приложение поможет вам быстро управлять своими объявлениями на маркетплэйсе!
 
-Currently, two official plugins are available:
+#### Запуск приложения
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Клонируете репозиторий командой git clone <ссылка*на*проект>
+2. Устанавливаете зависимости при помощи команды npm i
+3. Создайте в корне проекта файл .env и в нём добавьте строчку API_URL = http://localhost:3000/.
+4. В консоль в терминале введите команду docker compose --profile prod up.
+5. Ожидайте пока Docker сделает свое дело.
 
-## Expanding the ESLint configuration
+#### Фукнционал приложения
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Добавление, изменение и удаление объявлений.
+2. Поиск объявлений по названию, сортировка по: лайкам, просмотрам и цене.
+3. Реализована пагинация с возможностью выбора количества сущностей на странице (10, 20, 30), по умолчанию 10.
+4. Есть возможность перейти на более детальную страничку обьявления (она очень далека от идеала).
+   На карточке обявления есть кнопка заказы, которая покажет все заказы, содержащие этот товар.
+5. Реализована отдельная страница заказов с сортировкой по цене и статусу заказа, также есть возможность завершить заказ.
 
-- Configure the top-level `parserOptions` property like this:
+#### Вопросы и проблемы
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1. Я понимаю, что приложение подразумевало авторизацию, но из-за нехватки времени не успел реализовать даже простейшую.
+2. Я использовал UI-библиотеку react-bootstrap и гибко не настраивал стили, поэтому возможно неккоректное отображение верстки на некоторых устройствах.
+3. Возникли сложности с библиотекой json-server, так как они выкатили beta версию и из-за этого некоторый функционал стал недоступен, пришлось откатываться назад. Также что касается json-server по каким-то причинам не работали эндпоинты на сравнение gte, gt, ls, lse в связи с этим не получилось реализовать фильтрацию по цене с помощью слайдера.
+4. Так как проект небольшой из архитектруных подходов был выбран модульный, в каждой папки есть свой baseApi(index.tsx) откуда мы имеем доступ к компонентам, я старался делать независимые компоненты, что-то получилось хорошо, а что-то далеко от идеала, можно было бы лучше реализовать класс сервисов, не создавать два, а сделать один общий независимый, а потом с помощью паттерна DI(dependency injection) получать данные с бэка.
+5. Очень много времени ушло на рефакторинг и багфикс, было очень интересно покопаться и самому собрать конфигурацию WebPack (до этого я никогда этого не делал), а Docker compose для меня так вообще стал неким челленджом, который я успешно преодолел.
+6. Из существенных на мой взгляд проблем это дерганнье интерфейса, некорректное отображение экранов загрузки на страницах с подробной информацией об объявлении и заказе. Было бы супер покрыть код unit тестами с помощью Jest и react-testing-library.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+#### Резюмируя
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Хочу сказать большое спасибо компании Авито за эту возможность! Проект стал отличным опытом для меня — от углубления в Webpack и Docker до работы с клиентской и серверной частью!

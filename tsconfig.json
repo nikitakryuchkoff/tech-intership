@@ -1,23 +1,22 @@
 {
   "compilerOptions": {
-    "target": "ES5", // Целевая версия JavaScript, которую TypeScript должен генерировать
-    "module": "ESNext", // Модульная система, Webpack будет обрабатывать модули
-    "jsx": "react-jsx", // Настройка для поддержки JSX в React 17+
-    "strict": true, // Включает строгий режим TypeScript
-    "esModuleInterop": true, // Включает совместимость с CommonJS и ES модулями
-    "skipLibCheck": true, // Пропускает проверку типов в библиотечных файлах
-    "forceConsistentCasingInFileNames": true, // Обеспечивает одинаковый регистр файлов
-    "moduleResolution": "node", // Тип разрешения модулей (для поддержки node_modules)
-    "allowSyntheticDefaultImports": true, // Для правильной работы импорта по умолчанию
-    "resolveJsonModule": true, // Для поддержки импорта JSON файлов
-    "isolatedModules": true, // Позволяет компилировать каждый файл как модуль
-    "noEmit": true, // Webpack будет заниматься сборкой, поэтому TypeScript не нужно эмитировать файлы
-    "baseUrl": "./src", // Базовый путь для импорта модулей
+    "target": "ES5",
+    "module": "ESNext",
+    "jsx": "react-jsx",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "baseUrl": "./src",
     "paths": {
-      // Пути для alias, если у вас есть
       "@components/*": ["components/*"]
     }
   },
-  "include": ["src"], // Указывает, какие файлы включать в проект
-  "exclude": ["node_modules", "dist"] // Исключает папки node_modules и dist из проекта
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }
