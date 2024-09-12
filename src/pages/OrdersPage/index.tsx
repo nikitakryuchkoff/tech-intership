@@ -1,3 +1,4 @@
+import React from 'react';
 import OrdersList from '../../components/OrdersList';
 import { Filter, Pagination } from '../../components';
 import { useOrders } from '../../context/OrdersContext';

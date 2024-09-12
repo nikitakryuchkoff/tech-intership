@@ -1,3 +1,4 @@
+import React from 'react';
 import { Advertisment } from '../../types';
 import modifySortOption from '../../utils/filtredArray';
 
@@ -7,7 +8,7 @@ interface IAdvertisementsResponse {
 }
 
 class AdvertismentsService {
-  private baseUrl: string = import.meta.env.VITE_BASE_RUL;
+  private baseUrl: string = process.env.API_URL || '';
 
   private async fetchFromApi<T>(
     endpoint: string,
@@ -28,13 +29,13 @@ class AdvertismentsService {
       if (!response.ok) {
         throw new Error(`Network response was not ok: ${response.statusText}`);
       }
+      console.log(this.baseUrl);
 
       const totalCount = Number(response.headers.get('X-Total-Count'));
       const data = await response.json();
 
       return { data, totalCount };
     } catch (error) {
-
       return { data: [] as T, totalCount: null };
     }
   }

@@ -1,0 +1,48 @@
+version: '3'
+services:
+  json_server:
+    build:
+      context: .
+      dockerfile_inline: |
+        FROM node:20
+        WORKDIR /server
+        COPY package*.json ./
+        RUN npm install
+    volumes:
+      - ./server:/server/server
+    command: 'npm run server'
+    ports:
+      - 3000:3000
+    profiles: [dev, prod]
+  dev_app:
+    build:
+      context: .
+      dockerfile_inline: |
+        FROM node:20
+        WORKDIR /app
+        COPY . .
+        RUN npm install
+    command: 'npm run dev'
+    volumes:
+      - ./src:/app/src
+    ports:
+      - 9000:9000
+    links:
+      - json_server
+    profiles: [dev]
+  prod_app:
+    build:
+      context: .
+      dockerfile_inline: |
+        FROM node:20
+        WORKDIR /app
+        COPY . .
+        RUN npm install
+    command: 'npm run prod'
+    volumes:
+      - ./src:/app/src
+    ports:
+      - 9090:9090
+    links:
+      - json_server
+    profiles: [prod]

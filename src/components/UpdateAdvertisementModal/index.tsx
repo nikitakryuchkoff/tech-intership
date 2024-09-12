@@ -24,15 +24,17 @@ export default function UpdateAdvertisementModal({
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const formData = checkEmptyValues(
-      Object.fromEntries(new FormData(e.currentTarget)) as Record<
-        string,
-        FormDataEntryValue
-      >,
-    );
+    const formDataObj: Record<string, FormDataEntryValue> = {};
+    const formData = new FormData(e.currentTarget);
+
+    formData.forEach((value, key) => {
+      formDataObj[key] = value;
+    });
+
+    const filteredFormData = checkEmptyValues(formDataObj);
 
     const newItem = await AdvertismentsService.updateAdvertisement(
-      formData,
+      filteredFormData,
       id,
     );
 

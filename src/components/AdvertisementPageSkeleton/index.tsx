@@ -1,3 +1,4 @@
+import React from 'react';
 import { Row, Col, Card, Placeholder, Button } from 'react-bootstrap';
 
 export default function AdvertisementPageSkeleton(): JSX.Element {

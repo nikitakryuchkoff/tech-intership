@@ -16,7 +16,7 @@ class OrdersService {
     try {
       const sortOption = modifySortOption(sortType, sortOrder);
 
-      let query = `${import.meta.env.VITE_BASE_RUL}orders?_page=${page}&_limit=${limit}`;
+      let query = `${process.env.API_URL}orders?_page=${page}&_limit=${limit}`;
 
       if (sortOption.status) {
         query += `&${sortOption.status}`;
@@ -53,7 +53,7 @@ class OrdersService {
   ): Promise<IOrdersResponse> {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_RUL}orders?_page=${page}&_limit=${limit}&status=${filter}`,
+        `${process.env.API_URL}orders?_page=${page}&_limit=${limit}&status=${filter}`,
         {
           method: 'GET',
           headers: {
@@ -77,7 +77,7 @@ class OrdersService {
 
   public async changeOrderStatus(id: string): Promise<string> {
     try {
-      await fetch(`${import.meta.env.VITE_BASE_RUL}orders/${id}`, {
+      await fetch(`${process.env.API_URL}orders/${id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json;charset=utf-8',
@@ -97,7 +97,7 @@ class OrdersService {
     limit: number = 10,
   ): Promise<IOrdersResponse> {
     try {
-      const query = `${import.meta.env.VITE_BASE_RUL}orders?_page=${page}&_limit=${limit}`;
+      const query = `${process.env.API_URL}orders?_page=${page}&_limit=${limit}`;
 
       const response = await fetch(query, {
         method: 'GET',

@@ -1,3 +1,4 @@
+import React from 'react';
 import { Button, Col, Row } from 'react-bootstrap';
 import { Filter, SearchInput, Select } from '..';
 

@@ -1,10 +1,11 @@
+import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Outlet } from 'react-router-dom';
 import NavBar from '../NavBar';
 
 export default function Layout(): JSX.Element {
   return (
-    <>
+    <Container>
       <Row>
         <Col>
           <NavBar />
@@ -17,6 +18,6 @@ export default function Layout(): JSX.Element {
           </Container>
         </Col>
       </Row>
-    </>
+    </Container>
   );
 }

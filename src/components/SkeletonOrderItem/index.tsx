@@ -1,3 +1,4 @@
+import React from 'react';
 import { Card, Placeholder, Button } from 'react-bootstrap';
 
 export default function SkeletonOrderItem(): JSX.Element {

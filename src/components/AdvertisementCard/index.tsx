@@ -1,3 +1,4 @@
+import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import formatCurrency from '../../utils/formatCurrent';
@@ -22,7 +23,7 @@ export default function AdvertisementCard({
 }: AdvertisementCardProps): JSX.Element {
   return (
     <Card className="mb-3 advertisement-card shadow-sm">
-      <NavLink to={`/advertisements/${cardId}`} className="p-0" target="_blank">
+      <NavLink to={`/advertisements/${cardId}`} className="p-0">
         <Card.Img
           variant="top"
           src={image}
@@ -45,7 +46,7 @@ export default function AdvertisementCard({
           <i className="bi bi-eye"></i> {views} &nbsp; | &nbsp;{' '}
           <i className="bi bi-heart"></i> {likes}
         </Card.Text>
-        <NavLink to={`/orders/${cardId}`} target="_blank">
+        <NavLink to={`/orders/${cardId}`}>
           <Button variant="outline-primary" className="mt-3 w-100">
             Заказы
           </Button>

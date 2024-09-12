@@ -1,3 +1,4 @@
+import React from 'react';
 import { Row, Col, Card, Button, Badge, Alert } from 'react-bootstrap';
 import UpdateAdvertisementModal from '../../components/UpdateAdvertisementModal';
 import AdvertisementPageSkeleton from '../../components/AdvertisementPageSkeleton';
